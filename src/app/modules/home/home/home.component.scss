@@ -1,0 +1,32 @@
+.first-section {
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  background-size: contain;
+  height: 27rem;
+  left: 0;
+  background: #383434 url('../../../../assets/images/background.jpg') no-repeat  center top;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(12, 1fr);
+  min-height: 100%;
+}
+
+.image {
+  position: relative;
+  top: 0;
+  background: #383434 url('../../../../assets/images/background.jpg') repeat-x top left;
+}
+
+.historic {
+  background-color: #F6F6F6;
+  text-align: left;
+  border: 1px solid #dddddd;
+}
+
+.pub {
+  background:  url('../../../../assets/images/pub.jpg') no-repeat  center top;
+}

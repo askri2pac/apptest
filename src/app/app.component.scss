@@ -1,3 +1,10 @@
 body {
-  margin: 0px;
+  margin: 0;
+  display: grid;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: 100%;
 }
