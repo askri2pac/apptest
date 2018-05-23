@@ -12,7 +12,7 @@
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 25px;
 }
 
@@ -78,4 +78,15 @@ a  img{
 @media screen and (min-width: 1080px) {
   .site-header .site-branding {
   }
+}
+
+.account {
+  margin-right: 40px;
+}
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.user {
+  padding-left: 8px;
 }

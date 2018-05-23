@@ -11,7 +11,7 @@
 .grid {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: repeat(12, 1fr);
+  grid-template-rows: 455px repeat(auto-fill, 100px) 300px;
   min-height: 100%;
 }
 
@@ -29,4 +29,8 @@
 
 .pub {
   background:  url('../../../../assets/images/pub.jpg') no-repeat  center top;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
 }
