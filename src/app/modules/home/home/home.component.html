@@ -1,23 +1,33 @@
 <div class="grid">
-  <div class="image">
 
-  </div>
-  <div class="historic">
-    0
-  </div>
-  <div class="historic">
-    <div class="btn-group">
-      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Action
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
+  <div class="image">
+    <form>
+      <div class="form-group">
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ...">
       </div>
-    </div>
+
+      <div class="form-group">
+        <div>
+          <input type="text" class="form-control geo" id="exampleInputPassword1"
+                 placeholder="Où : Lille, Alsace, Bd Voltaire, ...">
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">A proximité</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary"><span class="fa fa-search"></span></button>
+    </form>
+  </div>
+
+  <div class="historic">
+    historique de recherche
+  </div>
+
+  <div class="historic">
+
   </div>
 
 </div>

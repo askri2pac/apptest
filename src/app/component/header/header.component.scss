@@ -24,7 +24,7 @@
   z-index: 99;
 }
 
-.header a:hover {
+.header-left a:hover {
   color: white;
 }
 
@@ -82,6 +82,12 @@ a  img{
 
 .account {
   margin-right: 40px;
+  cursor: pointer;
+  width: 219px;
+}
+
+.account:hover {
+ // background-color: #efefef;
 }
 body{
   font-family: 'Open Sans', sans-serif;
@@ -90,3 +96,17 @@ body{
 .user {
   padding-left: 8px;
 }
+
+.compte {
+  font-size: 13px;
+  padding-left: 17px;
+}
+
+.compte:hover {
+  color: white;
+}
+
+.fa{
+  font-size: 20px;
+}
+
