@@ -8,6 +8,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { AppModuleRouting } from './app-routing.module';
+import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
@@ -22,6 +23,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     RouterModule,
     AppModuleRouting,
     BrowserAnimationsModule,
+    Ng4GeoautocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

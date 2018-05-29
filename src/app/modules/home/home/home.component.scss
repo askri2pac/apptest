@@ -68,7 +68,7 @@ form {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 19rem;
+  width: 28rem;
 }
 .form-group {
   margin-bottom: 1rem;
@@ -96,7 +96,7 @@ form {
 }
 
 .geo {
-  width: 13rem!important;
+  width: 19rem!important;
 }
 
 input[type="checkbox"] {
@@ -106,4 +106,20 @@ input[type="checkbox"] {
 }
 .form-check-label {
   margin-top: 16px;
+}
+
+.custom-autocomplete__input[_ngcontent-c4] input[_ngcontent-c4] {
+  margin: 0;
+  padding: 10px;
+  height: 59px;
+  border: 1px solid #ccc;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}
+
+.auto-geo #search_places{
+  height: 59px;
 }
