@@ -1,3 +1,4 @@
+
 .first-section {
   width: 100%;
   margin: 0;
@@ -11,18 +12,19 @@
 .grid {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 465px repeat(auto-fill, 100px) 300px;
+  grid-template-rows: 546px repeat(auto-fill, 400px) 300px;
   min-height: 100%;
 }
 
-.image {
-  display: flex;
+.engine-search {
+  display: grid;
   position: relative;
   top: 0;
   background: #383434 url('../../../../assets/images/background.jpg') repeat-x top left;
 }
 
-.historic {
+.historique {
+  display: flex;
   background-color: #F6F6F6;
   text-align: left;
   border: 1px solid #dddddd;
@@ -40,7 +42,7 @@ form {
   /*justify-content: center;
   align-items: center;*/
   margin: 0 auto;
-  top: 62%;
+  top: 19%;
   position: relative;
   height: 6rem;
   align-items: flex-end;
@@ -56,10 +58,11 @@ form {
 .form-check {
   position: relative;
   display: block;
-  padding-left: 1.25rem;
+  padding-left: 2.25rem;
   background-color: #E6E6E6;
   height:  3.7rem;
-  width: 7rem;
+  width: 9rem;
+  border: 3px solid #fff;
 }
 .form-control{
   border-radius: unset;
@@ -69,6 +72,7 @@ form {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 28rem;
+  background-clip: unset;
 }
 .form-group {
   margin-bottom: 1rem;
@@ -122,4 +126,65 @@ input[type="checkbox"] {
 
 .auto-geo #search_places{
   height: 59px;
+  width: 17rem;
+}
+
+.label1 {
+  color: #ffffff;
+  font-size: 2.1rem;
+  font-weight: 700;
+  display: block;
+  width: 100%;
+  margin: 2rem auto 0;
+  text-align: center;
+  font-family: "Open Sans","Arial","Helvetica",sans-serif;
+  z-index: 15;
+  line-height: 1.8rem;}
+
+.label2 {
+  color: #ffffff;
+  font-size: 1.7rem;
+  font-family: "Open Sans","Arial","Helvetica",sans-serif;
+  font-weight: 400;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.label-hour {
+  position: relative;
+  display: grid;
+  margin: 0 auto;
+  top: 40%;
+  height: 6rem;
+}
+
+.teste {
+  display: flex;
+  margin: 0 auto;
+}
+
+.title-last-search {
+  float: left;
+  width: 37rem;
+  line-height: 3rem;
+  padding: 4rem 0 0.5rem 7rem;
+  border-bottom: 0.1rem solid #E6E6E6;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+  font-size: 1.6rem;
+}
+
+.title-sponsored {
+  float: right;
+  width: 37rem;
+  line-height: 3rem;
+  padding: 4rem 0 0.5rem 7rem;
+  border-bottom: 0.1rem solid #E6E6E6;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+  font-size: 1.6rem;
 }
