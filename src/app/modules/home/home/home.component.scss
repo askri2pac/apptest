@@ -168,12 +168,11 @@ input[type="checkbox"] {
   width: 37rem;
   line-height: 3rem;
   padding: 4rem 0 0.5rem 7rem;
-  border-bottom: 0.1rem solid #E6E6E6;
+  border-bottom: 1px solid #E6E6E6;
   color: #000;
-  margin-top: 0;
-  margin-bottom: 0;
   text-align: left;
   font-size: 1.6rem;
+  margin: 0 5rem 1rem 1rem;
 }
 
 .title-sponsored {
@@ -181,10 +180,65 @@ input[type="checkbox"] {
   width: 37rem;
   line-height: 3rem;
   padding: 4rem 0 0.5rem 7rem;
-  border-bottom: 0.1rem solid #E6E6E6;
+  border-bottom: 1px solid #E6E6E6;
   color: #000;
   margin-top: 0;
   margin-bottom: 0;
   text-align: left;
   font-size: 1.6rem;
+}
+
+.not-found {
+  text-align: center;
+  margin-left: 6rem;
+}
+
+.company-name {
+  font-weight: bold;
+  display: inline;
+}
+@media only screen and (min-width: 80em){
+  .company-name {
+    max-width: 85%;
+  }
+}
+
+ @media only screen and (min-width: 48em){
+   .company-name{
+     font-size: 1.1rem;
+     line-height: 2.4rem;
+   }
+ }
+
+@media only screen and (min-width: 80em){
+  .company-name{
+    max-width: 85%;
+  }
+}
+
+.row-name {
+  display: flex;min-width: 100%;
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 2.4rem;
+}
+
+.avis {
+  float: right;
+  margin-left: 14rem;
+}
+
+.fa.fa-star{
+  color: yellow;
+}
+
+.histo-date {
+  font-size: 13px;
+}
+ul {
+  list-style-type: none;
+}
+
+.write-note {
+  background-color: lightgray;
 }
