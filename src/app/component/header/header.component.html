@@ -6,17 +6,13 @@
     <a href="#about">About</a>
   </div>
   <div class="header-right">
-    <a class=" account user">
+    <a class=" account user" [matMenuTriggerFor]="menu">
       <span class="fa fa-user-circle"></span>
-      <span class="compte" href="#" >Mon Compte</span>
+      <span class="compte" >Mon Compte</span>
+      <mat-menu yPosition="below" xPosition="before" [overlapTrigger]="false" class="menu" #menu="matMenu">
+        <button mat-menu-item>Se connecter</button>
+        <button mat-menu-item>Créer un compte</button>
+      </mat-menu>
     </a>
-    <ul hidden>
-      <li>
-        <a>test a</a>
-      </li>
-      <li>
-        <a>test b</a>
-      </li>
-    </ul>
   </div>
 </div>

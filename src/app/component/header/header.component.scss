@@ -86,9 +86,6 @@ a  img{
   width: 219px;
 }
 
-.account:hover {
- // background-color: #efefef;
-}
 body{
   font-family: 'Open Sans', sans-serif;
 }
@@ -102,11 +99,25 @@ body{
   padding-left: 17px;
 }
 
-.compte:hover {
-  color: white;
-}
 
 .fa{
   font-size: 20px;
 }
+a.account.user {
+  color: #c0c1c2;
+}
+a.account.user:hover{
+  color: white;
+}
 
+.mat-menu-content {
+  min-width: 190px;
+}
+.mat-menu-panel {
+  margin-top: 8px;
+  background-color: #303030;
+}
+button.mat-menu-item {
+  width: 100%;
+  color: #c0c1c2;
+}

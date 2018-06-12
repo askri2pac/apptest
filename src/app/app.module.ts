@@ -11,6 +11,8 @@ import { AppModuleRouting } from './app-routing.module';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatMenuModule} from '@angular/material/menu';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppModuleRouting,
     BrowserAnimationsModule,
     Ng4GeoautocompleteModule,
+    MatMenuModule,
   ],
+  exports: [MatMenuModule],
   providers: [],
   bootstrap: [AppComponent]
 })
