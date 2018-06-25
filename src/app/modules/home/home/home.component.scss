@@ -20,7 +20,9 @@
   display: grid;
   position: relative;
   top: 0;
-  background: #383434 url('../../../../assets/images/background.jpg') repeat-x top left;
+  background: #383434 url('../../../../assets/images/mecanicien.jpg') top center;
+  max-width: 100%;
+  height: auto;
 }
 
 .historique {
@@ -56,13 +58,14 @@ form {
 
 
 .form-check {
-  position: relative;
-  display: block;
+  position: absolute;
+  display: inline-flex;
   padding-left: 2.25rem;
   background-color: #E6E6E6;
-  height:  3.7rem;
+  height: 3.7rem;
   width: 9rem;
   border: 3px solid #fff;
+  float: right;
 }
 .form-control{
   border-radius: unset;
@@ -241,4 +244,9 @@ ul {
 
 .write-note {
   background-color: lightgray;
+}
+
+.centerpop {
+  width: 655px;
+  margin: auto;
 }

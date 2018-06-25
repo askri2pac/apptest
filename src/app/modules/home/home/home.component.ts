@@ -1,12 +1,15 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 @Component({
   selector: 'app-home',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [NgxSmartModalService],
 })
 export class HomeComponent implements OnInit {
+  private bodyText: string;
 
   public userSettings3: any = {
     showCurrentLocation: false,
@@ -16,7 +19,7 @@ export class HomeComponent implements OnInit {
     showSearchButton: false,
   };
 
-  constructor() {
+  constructor(public ngxSmartModalService: NgxSmartModalService) {
    /* setTimeout(() => {
       this.userSettings3['inputPlaceholderText'] = 'This is delayed test';
       this.userSettings3 = Object.assign({}, this.userSettings3);
@@ -28,8 +31,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.bodyText = 'This text can be updated in modal 1';
   }
-
   autoCompleteCallback1(selectedData:any) {
     // do any necessery stuff.
   }

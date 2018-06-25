@@ -12,6 +12,9 @@ import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
+import {NgxSmartModalModule} from 'ngx-smart-modal';
+
+
 
 @NgModule({
   declarations: [
@@ -27,9 +30,11 @@ import {MatMenuModule} from '@angular/material/menu';
     BrowserAnimationsModule,
     Ng4GeoautocompleteModule,
     MatMenuModule,
+    NgxSmartModalModule
   ],
   exports: [MatMenuModule],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

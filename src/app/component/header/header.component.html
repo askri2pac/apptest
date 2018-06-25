@@ -1,18 +1,41 @@
-<div class="header">
-  <a routerLink="/home" class="logo"><img src="../../../assets/images/logo.png"></a>
-  <div class="header-left">
-    <a routerLink="/home" routerLinkActive="active-link">Home</a>
-    <a routerLink="/contact" routerLinkActive="active-link">Contact</a>
-    <a href="#about">About</a>
-  </div>
-  <div class="header-right">
-    <a class=" account user" [matMenuTriggerFor]="menu">
-      <span class="fa fa-user-circle"></span>
-      <span class="compte" >Mon Compte</span>
-      <mat-menu yPosition="below" xPosition="before" [overlapTrigger]="false" class="menu" #menu="matMenu">
-        <button mat-menu-item>Se connecter</button>
-        <button mat-menu-item>Créer un compte</button>
-      </mat-menu>
-    </a>
+<div>
+  <div class="topnav" id="myTopnav">
+        <a routerLink="/home" class="logo "><img class="img_logo" src="../../../assets/images/logo.png"></a>
+    <ul>
+      <li class="homeclass">
+        <a style="font-family: 'Helvetica', sans-serif;" routerLink="/home" routerLinkActive="active-link">Home</a>
+      </li>
+      <li>
+        <a style="font-family: 'Helvetica', sans-serif;" routerLink="/contact" routerLinkActive="active-link">Contact</a>
+      </li>
+      <li>
+        <a style="font-family: 'Helvetica', sans-serif;" routerLink="/contact" routerLinkActive="active-link">About</a>
+      </li>
+      <li>
+        <a class=" account user header-right" [matMenuTriggerFor]="menu">
+          <span class="fa fa-user-circle"></span>
+          <span class="compte" >Mon Compte</span>
+          <mat-menu yPosition="below" xPosition="before" [overlapTrigger]="false" class="menu" #menu="matMenu">
+            <button (click)="ngxSmartModalService.getModal('myModal').open()" mat-menu-item>Se connecter</button>
+            <button mat-menu-item>Créer un compte</button>
+          </mat-menu>
+        </a>
+        <ngx-smart-modal #myModal identifier="myModal">
+          <h1>Connexion</h1>
+          <p>Some stuff...</p>
+
+          <button (click)="myModal.close()">Close</button>
+        </ngx-smart-modal>
+      </li>
+
+    <li class="icon">
+
+      <a href="javascript:void(0);"  (click)="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </li>
+
+    </ul>
   </div>
 </div>
+
