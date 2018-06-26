@@ -1,3 +1,4 @@
+
 .header {
   display: flex;
   overflow: hidden;
@@ -219,14 +220,88 @@ li:not(:first-child) {
 .nsm-dialog.nsm-dialog-open {
   opacity: 1;
   visibility: visible;
-  min-height: 524px;
   width: 90%;
   max-width: 592px;
   padding: 0;
+  top: 5%;
+  min-height: 613px;
 }
 .nsm-dialog-open h1 {
   background-color: yellow;
   font-size: 1.5rem;
   height: 5rem;
   padding: 23px;
+}
+
+.login-option {
+  position: relative;
+  display: flex;
+}
+
+.vl {
+  border-left: 1px solid #ccc;
+  height: 250px;
+  margin: 0 15%;
+}
+
+input.form-control {
+  border-radius: unset;
+  height: 3rem;
+  max-width: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 15rem;
+  background-clip: unset;
+}
+
+form {
+  display: block !important;
+}
+
+.my-form {
+  margin: 0 auto;
+}
+
+.social-login {
+  position: relative;
+  display: grid;
+  margin: 32px;
+}
+
+.login-option.social-login.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa {
+  margin: 4px!important;
 }

@@ -22,9 +22,27 @@
         </a>
         <ngx-smart-modal #myModal identifier="myModal">
           <h1>Connexion</h1>
-          <p>Some stuff...</p>
+          <!--<button (click)="myModal.close()">Close</button>-->
+          <div class="login-option">
 
-          <button (click)="myModal.close()">Close</button>
+            <div class="vl"></div>
+            <div class="my-form">
+              <form>
+                <div class="form-group row">
+                  <label class="col-xs-12 col-md-12 col-lg-12">Email</label>
+                  <div class="col-xs-12 col-md-12 col-lg-12">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-xs-12 col-md-12 col-lg-12">Mot de Passe</label>
+                  <div class="col-xs-12 col-md-12 col-lg-12">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </ngx-smart-modal>
       </li>
 
