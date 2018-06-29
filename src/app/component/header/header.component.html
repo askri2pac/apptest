@@ -1,12 +1,13 @@
 <div>
   <div class="topnav" id="myTopnav">
-        <a routerLink="/home" class="logo "><img class="img_logo" src="../../../assets/images/logo.png"></a>
+    <a routerLink="/home" class="logo "><img class="img_logo" src="../../../assets/images/logo.png"></a>
     <ul>
       <li class="homeclass">
         <a style="font-family: 'Helvetica', sans-serif;" routerLink="/home" routerLinkActive="active-link">Home</a>
       </li>
       <li>
-        <a style="font-family: 'Helvetica', sans-serif;" routerLink="/contact" routerLinkActive="active-link">Contact</a>
+        <a style="font-family: 'Helvetica', sans-serif;" routerLink="/contact"
+           routerLinkActive="active-link">Contact</a>
       </li>
       <li>
         <a style="font-family: 'Helvetica', sans-serif;" routerLink="/contact" routerLinkActive="active-link">About</a>
@@ -14,48 +15,23 @@
       <li>
         <a class=" account user header-right" [matMenuTriggerFor]="menu">
           <span class="fa fa-user-circle"></span>
-          <span class="compte" >Mon Compte</span>
+          <span class="compte">Mon Compte</span>
           <mat-menu yPosition="below" xPosition="before" [overlapTrigger]="false" class="menu" #menu="matMenu">
             <button (click)="ngxSmartModalService.getModal('myModal').open()" mat-menu-item>Se connecter</button>
             <button mat-menu-item>Créer un compte</button>
           </mat-menu>
         </a>
         <ngx-smart-modal #myModal identifier="myModal">
-          <h1>Connexion</h1>
-          <!--<button (click)="myModal.close()">Close</button>-->
-          <div class="login-option">
-            <div class="social">
-              <button class="btn btn-facebook"><i class="fa fa-facebook"></i> | facebook</button>
-              <button class="btn btn-twitter"><i class="fa fa-twitter"></i> | Twitter</button>
-              <button class="btn btn-linkedin"><i class="fa fa-linkedin"></i> | LinkedIn</button>
-            </div>
-            <div class="vl"></div>
-            <div class="my-form">
-              <form>
-                <div class="form-group row">
-                  <label class="col-xs-12 col-md-12 col-lg-12">Email</label>
-                  <div class="col-xs-12 col-md-12 col-lg-12">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-xs-12 col-md-12 col-lg-12">Mot de Passe</label>
-                  <div class="col-xs-12 col-md-12 col-lg-12">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
+          <app-modal-body></app-modal-body>
         </ngx-smart-modal>
       </li>
 
-    <li class="icon">
+      <li class="icon">
 
-      <a href="javascript:void(0);"  (click)="myFunction()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </li>
+        <a class="at-link" href="javascript:void(0);" (click)="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </li>
 
     </ul>
   </div>
