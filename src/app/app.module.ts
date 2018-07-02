@@ -13,6 +13,9 @@ import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 import {NgxSmartModalModule} from 'ngx-smart-modal';
+import { ModalComponent } from './component/custom/_directives';
+import { ModalBodyComponent } from './component/modal-body/modal-body.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,6 +25,8 @@ import {NgxSmartModalModule} from 'ngx-smart-modal';
     AuthentificationComponent,
     HeaderComponent,
     FooterComponent,
+    ModalComponent,
+    ModalBodyComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,8 @@ import {NgxSmartModalModule} from 'ngx-smart-modal';
     BrowserAnimationsModule,
     Ng4GeoautocompleteModule,
     MatMenuModule,
-    NgxSmartModalModule
+    NgxSmartModalModule,
+    ReactiveFormsModule
   ],
   exports: [MatMenuModule],
   providers: [

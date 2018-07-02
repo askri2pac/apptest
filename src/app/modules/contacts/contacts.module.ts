@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { ContactsComponent } from './contacts/contacts.component';
 
-import { ModalComponent } from '../../component/custom/_directives';
 import { ModalService } from '../../component/custom/_services';
 
 @NgModule({
@@ -12,6 +11,6 @@ import { ModalService } from '../../component/custom/_services';
     CommonModule,
     ContactsRoutingModule,
   ],
-  declarations: [ContactsComponent, ModalComponent], providers: [ModalService]
+  declarations: [ContactsComponent], providers: [ModalService]
 })
 export class ContactsModule { }
