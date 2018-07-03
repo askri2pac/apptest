@@ -98,7 +98,7 @@ body{
 .compte {
   font-family: 'Helvetica', sans-serif;
   font-size: 13px;
-  padding-left: 17px;
+  padding-left: 13px;
 }
 
 
@@ -117,7 +117,7 @@ a.account.user:hover{
   min-width: 190px;
 }
 .mat-menu-panel {
-  margin-top: 8px;
+  margin-top: 2px;
   background-color: #303030;
 }
 button.mat-menu-item {
@@ -344,4 +344,9 @@ form {
   text-decoration: none !important;
   cursor: pointer !important;
   padding-top: 0;
+}
+
+span.compte {
+  position: absolute;
+  padding-top: 5px;
 }

@@ -17,6 +17,10 @@ import { ModalComponent } from './component/custom/_directives';
 import { ModalBodyComponent } from './component/modal-body/modal-body.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { AuthentificationService } from './_services/authentification.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {RequestHandlerService} from './_services/requestHandler';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 
 @NgModule({
@@ -36,10 +40,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     Ng4GeoautocompleteModule,
     MatMenuModule,
     NgxSmartModalModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgHttpLoaderModule
   ],
   exports: [MatMenuModule],
   providers: [
+    AuthentificationService,
+    HttpClientModule,
+    HttpClient,
+    RequestHandlerService
   ],
   bootstrap: [AppComponent]
 })

@@ -14,9 +14,11 @@
       </li>
       <li>
         <a class=" account user header-right" [matMenuTriggerFor]="menu">
-          <span class="fa fa-user-circle"></span>
-          <span class="compte">Mon Compte</span>
-          <mat-menu yPosition="below" xPosition="before" [overlapTrigger]="false" class="menu" #menu="matMenu">
+          <div class="user-account">
+            <span class="fa fa-user-circle"></span>
+            <span class="compte">Mon Compte</span>
+          </div>
+          <mat-menu yPosition="below"  xPosition="before" [overlapTrigger]="false" class="menu" #menu="matMenu">
             <button (click)="ngxSmartModalService.getModal('myModal').open()" mat-menu-item>Se connecter</button>
             <button mat-menu-item>Créer un compte</button>
           </mat-menu>

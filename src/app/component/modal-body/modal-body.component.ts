@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthentificationService} from '../../_services/authentification.service';
 import {first} from 'rxjs/internal/operators';
+import { Spinkit } from 'ng-http-loader';
 
 @Component({
   selector: 'app-modal-body',
@@ -14,6 +15,7 @@ export class ModalBodyComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  public spinkit = Spinkit;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,7 +43,8 @@ export class ModalBodyComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          console.log('data', this.returnUrl);
+          this.router.navigate(['/contact']);
         },
         error => {
           console.log('errrorrr');

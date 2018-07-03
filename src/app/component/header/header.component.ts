@@ -1,9 +1,10 @@
-import {Component, NgModule, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, HostBinding, NgModule, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatMenuTrigger} from '@angular/material';
 import {NgxSmartModalModule, NgxSmartModalService} from 'ngx-smart-modal';
 import {ModalComponent} from '../custom/_directives';
 import {HomeComponent} from '../../modules/home/home/home.component';
 import { ModalBodyComponent } from '../modal-body/modal-body.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-header',
@@ -16,11 +17,12 @@ import { ModalBodyComponent } from '../modal-body/modal-body.component';
 @NgModule({
   imports: [
     NgxSmartModalModule,
+    NoopAnimationsModule
   ],
   declarations: [HomeComponent, ModalComponent, ModalBodyComponent]
 })
 export class HeaderComponent implements OnInit {
-
+  @HostBinding('@.disabled')
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
   constructor(public ngxSmartModalService: NgxSmartModalService) { }

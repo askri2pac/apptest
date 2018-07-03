@@ -8,7 +8,7 @@
   </div>
   <div class="vl"></div>
   <div class="my-form">
-    <form [formGroup] ="loginForm">
+    <form [formGroup] ="loginForm" (submit)="onsubmit()">
       <div class="form-group row">
         <label class="col-xs-12 col-md-12 col-lg-12">Email</label>
         <div class="col-xs-12 col-md-12 col-lg-12">

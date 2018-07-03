@@ -1,22 +1,32 @@
-import {Injectable} from '@angular/compiler/src/core';
 import {HttpClient} from '@angular/common/http';
-import { apiUrl } from '../../api-url'  ;
-import {map} from 'rxjs-compat/operator/map';
+import {apiUrl} from '../../api-url'  ;
+import {map} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {RequestHandlerService} from './requestHandler';
+import {catchError} from 'rxjs/internal/operators';
 
 @Injectable()
 export class AuthentificationService {
-  constructor(private http: HttpClient) {}
-  login(username: string, password: string) {
-    return this.http.post<any>(apiUrl + 'users/authentificate', {username: username, password: password})
-      .pipe(map(user => {
-        // login successuful if there is an jwt token in the response
-        if (user && user.token){
-          localStorage.setItem('currentUser', JSON.stringify(user));
-        }
-        return user;
-      }));
+  constructor(private http: HttpClient, private requestHandlerService: RequestHandlerService) {
   }
+
+  login(username: string, password: string) {
+    return this.http.post<any>(apiUrl + '/users/authenticate', {username: username, password: password})
+      .pipe(
+        map(user => {
+          console.log('exist user', user);
+          // login successuful if there is an jwt token in the response
+          if (user && user.token) {
+            localStorage.setItem('currentUser', JSON.stringify(user));
+          }
+          return user;
+        }),
+        catchError(err => this.requestHandlerService.handleError(err))
+      );
+  }
+
   logout() {
     localStorage.removeItem('currentUser');
   }
+
 }
