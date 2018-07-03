@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AuthentificationService} from '../../_services/authentification.service';
 import {first} from 'rxjs/internal/operators';
 import { Spinkit } from 'ng-http-loader';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-modal-body',
@@ -22,6 +23,7 @@ export class ModalBodyComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authentificationService: AuthentificationService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,13 @@ export class ModalBodyComponent implements OnInit {
     });
     this.authentificationService.logout();
     this.returnUrl = this.route.snapshot.queryParams['returnUrl' || '/'];
+    /** spinner starts on init */
+  /*  this.spinner.show();
+
+    setTimeout(() => {
+      /!** spinner ends after 5 seconds *!/
+      this.spinner.hide();
+    }, 5000);*/
   }
   get f() { return this.loginForm.controls; }
   onsubmit() {
@@ -39,16 +48,21 @@ export class ModalBodyComponent implements OnInit {
       return;
     }
     this.loading = true;
+    this.spinner.show();
     this.authentificationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
         data => {
           console.log('data', this.returnUrl);
           this.router.navigate(['/contact']);
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 3000);
         },
         error => {
           console.log('errrorrr');
           this.loading = false;
+          this.spinner.hide();
         }
       );
   }

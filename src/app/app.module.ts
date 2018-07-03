@@ -21,6 +21,7 @@ import { AuthentificationService } from './_services/authentification.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {RequestHandlerService} from './_services/requestHandler';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     NgxSmartModalModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgHttpLoaderModule
+    NgHttpLoaderModule,
+    NgxSpinnerModule
   ],
   exports: [MatMenuModule],
   providers: [
