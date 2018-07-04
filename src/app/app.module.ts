@@ -22,6 +22,8 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {RequestHandlerService} from './_services/requestHandler';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './_services/TokenInterceptor';
 
 
 @NgModule({
@@ -51,7 +53,12 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AuthentificationService,
     HttpClientModule,
     HttpClient,
-    RequestHandlerService
+    RequestHandlerService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

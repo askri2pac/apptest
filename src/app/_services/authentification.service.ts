@@ -4,6 +4,7 @@ import {map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {RequestHandlerService} from './requestHandler';
 import {catchError} from 'rxjs/internal/operators';
+import {tokenNotExpired} from 'angular2-jwt';
 
 @Injectable()
 export class AuthentificationService {
@@ -27,6 +28,15 @@ export class AuthentificationService {
 
   logout() {
     localStorage.removeItem('currentUser');
+  }
+
+  public getToken(): string {
+    return localStorage.getItem('currentUser');
+  }
+
+  public isAuthentificated(): boolean {
+    const token = this.getToken();
+    return tokenNotExpired(token);
   }
 
 }
