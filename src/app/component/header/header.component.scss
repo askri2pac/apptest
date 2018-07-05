@@ -127,8 +127,10 @@ button.mat-menu-item {
 
 /* Add a black background color to the top navigation */
 .topnav {
+  position: relative;
+  z-index: 999;
   overflow: hidden;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 7px 0;
   top: 0;
   height: 4rem;
@@ -186,7 +188,7 @@ button.mat-menu-item {
 }
 
 .img_logo {
-  position: absolute;
+  position: fixed;
   z-index: 99;
 }
 
@@ -245,20 +247,7 @@ li:not(:first-child) {
   margin-right: 28px;
 }
 
-input.form-control {
-  border-radius: unset;
-  height: 3rem;
-  max-width: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 15rem;
-  background-clip: unset;
-}
 
-form {
-  display: block !important;
-}
 
 .my-form {
   margin: 0 auto;
@@ -349,4 +338,25 @@ form {
 span.compte {
   position: absolute;
   padding-top: 5px;
+}
+body.dialog-open ngx-smart-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+ul {
+  list-style-type: none!important;
+}
+
+.auto-geo.col-xs-4.col-sm-4.col-md-4 {
+  display: contents;
+}
+.form-group {
+  margin-bottom: 1rem;
+  display: inline-flex;
+  padding-right: 10px;
 }

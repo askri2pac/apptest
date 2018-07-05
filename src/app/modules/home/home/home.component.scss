@@ -18,10 +18,11 @@
 
 .engine-search {
   display: grid;
-  position: relative;
+  position: absolute;
   top: 0;
   background: #383434 url('../../../../assets/images/mecanicien.jpg') top center;
-  max-width: 100%;
+  min-width: 100%;
+  min-height: 85%;
   height: auto;
 }
 
@@ -58,7 +59,7 @@ form {
 
 
 .form-check {
-  position: absolute;
+  position: relative;
   display: inline-flex;
   padding-left: 2.25rem;
   background-color: #E6E6E6;
@@ -74,7 +75,7 @@ form {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 28rem;
+  width: 18rem;
   background-clip: unset;
 }
 .form-group {
@@ -138,27 +139,26 @@ input[type="checkbox"] {
   font-weight: 700;
   display: block;
   width: 100%;
-  margin: 2rem auto 0;
+  margin: auto 0;
   text-align: center;
   font-family: "Open Sans","Arial","Helvetica",sans-serif;
   z-index: 15;
-  line-height: 1.8rem;}
+  line-height: 1.8rem;
+}
 
 .label2 {
   color: #ffffff;
   font-size: 1.7rem;
   font-family: "Open Sans","Arial","Helvetica",sans-serif;
   font-weight: 400;
-  margin-top: 1rem;
   text-align: center;
 }
 
 .label-hour {
   position: relative;
-  display: grid;
-  margin: 0 auto;
+  display: block;
+  margin: auto;
   top: 40%;
-  height: 6rem;
 }
 
 .teste {
@@ -190,6 +190,7 @@ input[type="checkbox"] {
   text-align: left;
   font-size: 1.6rem;
 }
+
 
 .not-found {
   text-align: center;
@@ -250,3 +251,16 @@ ul {
   width: 655px;
   margin: auto;
 }
+label.label1 {
+  margin-bottom: 0px;
+}
+
+input.form-control {
+  border-radius: unset;
+  max-width: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-clip: unset;
+}
+

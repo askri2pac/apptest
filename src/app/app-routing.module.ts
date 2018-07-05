@@ -1,6 +1,8 @@
 import {Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import {ContactsModule} from './modules/contacts/contacts.module';
+import { AuthGuardService as AuthGuard } from './_services/auth-guard.service';
+import {HomeModule} from './modules/home/home.module';
 
 const appRoutes: Routes = [
       {
@@ -14,8 +16,13 @@ const appRoutes: Routes = [
       },
        {
         path: 'contact',
-        loadChildren: 'app/modules/contacts/contacts.module#ContactsModule'
-       }
+        loadChildren: 'app/modules/contacts/contacts.module#ContactsModule',
+       // canActivate: [AuthGuard]
+       },
+  {
+    path: 'profile',
+    loadChildren: 'app/modules/profile/profile.module#ProfileModule'
+  }
 ];
 
 export const AppModuleRouting = RouterModule.forRoot(appRoutes);

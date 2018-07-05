@@ -5,6 +5,7 @@ import {AuthentificationService} from '../../_services/authentification.service'
 import {first} from 'rxjs/internal/operators';
 import { Spinkit } from 'ng-http-loader';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {NgxSmartModalService} from 'ngx-smart-modal';
 
 @Component({
   selector: 'app-modal-body',
@@ -23,7 +24,8 @@ export class ModalBodyComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authentificationService: AuthentificationService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    public ngxSmartModalService: NgxSmartModalService
   ) { }
 
   ngOnInit() {
@@ -47,6 +49,7 @@ export class ModalBodyComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+    // ngxSmartModalService.getModal('myModal').open()
     this.loading = true;
     this.spinner.show();
     this.authentificationService.login(this.f.username.value, this.f.password.value)
@@ -54,10 +57,11 @@ export class ModalBodyComponent implements OnInit {
       .subscribe(
         data => {
           console.log('data', this.returnUrl);
-          this.router.navigate(['/contact']);
           setTimeout(() => {
             this.spinner.hide();
-          }, 3000);
+            this.ngxSmartModalService.getModal('myModal').close();
+            this.router.navigate(['/profile']);
+          }, 2000);
         },
         error => {
           console.log('errrorrr');

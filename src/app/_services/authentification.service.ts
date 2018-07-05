@@ -1,4 +1,4 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpRequest} from '@angular/common/http';
 import {apiUrl} from '../../api-url'  ;
 import {map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
@@ -8,6 +8,7 @@ import {tokenNotExpired} from 'angular2-jwt';
 
 @Injectable()
 export class AuthentificationService {
+  cachedRequests: Array<HttpRequest<any>> = [];
   constructor(private http: HttpClient, private requestHandlerService: RequestHandlerService) {
   }
 
@@ -37,6 +38,15 @@ export class AuthentificationService {
   public isAuthentificated(): boolean {
     const token = this.getToken();
     return tokenNotExpired(token);
+  }
+
+  public collectFailedRequest(request): void {
+    this.cachedRequests.push(request);
+  }
+
+  public retryFailedRequests(): void {
+    // retry the requests. this method can
+    // be called after the token is refreshed
   }
 
 }

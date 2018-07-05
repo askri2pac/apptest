@@ -24,6 +24,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './_services/TokenInterceptor';
+import {AuthGuardService} from './_services/auth-guard.service';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { TokenInterceptor } from './_services/TokenInterceptor';
     HttpClientModule,
     HttpClient,
     RequestHandlerService,
+    AuthGuardService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
