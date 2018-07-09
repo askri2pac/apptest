@@ -25,9 +25,12 @@ export class HeaderComponent implements OnInit {
   @HostBinding('@.disabled')
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  constructor(public ngxSmartModalService: NgxSmartModalService) { }
+  constructor(public ngxSmartModalService: NgxSmartModalService,
+              public ngxSmartModalService1: NgxSmartModalService) { }
 
   ngOnInit() {
+
+    this.ngxSmartModalService.closeLatestModal();
   }
 
     myFunction() {

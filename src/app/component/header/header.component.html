@@ -18,14 +18,16 @@
             <span class="fa fa-user-circle"></span>
             <span class="compte">Mon Compte</span>
           </div>
-          <mat-menu yPosition="below"  xPosition="before" [overlapTrigger]="false" class="menu" #menu="matMenu">
+          <mat-menu yPosition="below" xPosition="before" [overlapTrigger]="false" class="menu" #menu="matMenu">
             <button (click)="ngxSmartModalService.getModal('myModal').open()" mat-menu-item>Se connecter</button>
-            <button mat-menu-item>Créer un compte</button>
+            <button (click)="ngxSmartModalService.getModal('myModal22').open()" mat-menu-item>Créer un compte</button>
           </mat-menu>
         </a>
-        <ngx-smart-modal #myModal identifier="myModal">
-          <app-modal-body></app-modal-body>
-        </ngx-smart-modal>
+
+
+      <app-modal-login></app-modal-login>
+      <app-modal-subscribe></app-modal-subscribe>
+
       </li>
 
       <li class="icon">

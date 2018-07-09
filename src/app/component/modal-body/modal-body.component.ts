@@ -49,7 +49,6 @@ export class ModalBodyComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    // ngxSmartModalService.getModal('myModal').open()
     this.loading = true;
     this.spinner.show();
     this.authentificationService.login(this.f.username.value, this.f.password.value)
