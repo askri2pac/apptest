@@ -15,7 +15,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {NgxSmartModalModule} from 'ngx-smart-modal';
 import { ModalComponent } from './component/custom/_directives';
 import { ModalBodyComponent } from './component/modal-body/modal-body.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AuthentificationService } from './_services/authentification.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -25,6 +25,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './_services/TokenInterceptor';
 import {AuthGuardService} from './_services/auth-guard.service';
+import { RegisterModalBodyComponent } from './component/register-modal-body/register-modal-body.component';
+import { ModalSubscribeComponent } from './component/modal-subscribe/modal-subscribe.component';
+import { ModalLoginComponent } from './component/modal-login/modal-login.component';
+import {DataService} from './_services/data.service';
 
 
 @NgModule({
@@ -35,6 +39,9 @@ import {AuthGuardService} from './_services/auth-guard.service';
     FooterComponent,
     ModalComponent,
     ModalBodyComponent,
+    RegisterModalBodyComponent,
+    ModalSubscribeComponent,
+    ModalLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +54,8 @@ import {AuthGuardService} from './_services/auth-guard.service';
     ReactiveFormsModule,
     HttpClientModule,
     NgHttpLoaderModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FormsModule,
   ],
   exports: [MatMenuModule],
   providers: [
@@ -61,6 +69,7 @@ import {AuthGuardService} from './_services/auth-guard.service';
       useClass: TokenInterceptor,
       multi: true
     },
+    DataService,
   ],
   bootstrap: [AppComponent]
 })

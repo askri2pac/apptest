@@ -4,24 +4,13 @@
     <div class="label-hour">
       <label class="label1"><b>Horaires, Avis, Réservations</b></label>
       <label class="label2">Trouvez plus que des coordonnées</label>
-      <ngx-smart-modal #myModal identifier="myModal">
-        <h1>Title</h1>
-        <p>Some stuff...</p>
-
-        <button (click)="myModal.close()">Close</button>
-      </ngx-smart-modal>
     </div>
 
 
 
-
-
-
-
-
-    <form>
+    <form (submit)="onSubmit()">
       <div class="form-group row">
-        <input type="email" class="form-control col-xs-6 col-sm-6 col-md-6" id="exampleInputEmail1" aria-describedby="emailHelp"
+        <input type="text" [(ngModel)]="search" name="searchField"  class="form-control col-xs-6 col-sm-6 col-md-6" id="searchInput" aria-describedby="searchHelp"
                placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ...">
 
         <div class="auto-geo col-xs-4 col-sm-4 col-md-4">
