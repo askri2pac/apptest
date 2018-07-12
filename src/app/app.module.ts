@@ -8,7 +8,6 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { AppModuleRouting } from './app-routing.module';
-import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
@@ -29,6 +28,8 @@ import { RegisterModalBodyComponent } from './component/register-modal-body/regi
 import { ModalSubscribeComponent } from './component/modal-subscribe/modal-subscribe.component';
 import { ModalLoginComponent } from './component/modal-login/modal-login.component';
 import {DataService} from './_services/data.service';
+import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
+
 
 
 @NgModule({
@@ -48,7 +49,6 @@ import {DataService} from './_services/data.service';
     RouterModule,
     AppModuleRouting,
     BrowserAnimationsModule,
-    Ng4GeoautocompleteModule,
     MatMenuModule,
     NgxSmartModalModule,
     ReactiveFormsModule,
@@ -56,6 +56,7 @@ import {DataService} from './_services/data.service';
     NgHttpLoaderModule,
     NgxSpinnerModule,
     FormsModule,
+    GooglePlaceModule,
   ],
   exports: [MatMenuModule],
   providers: [

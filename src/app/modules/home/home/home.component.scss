@@ -48,7 +48,7 @@ form {
   top: 19%;
   position: relative;
   height: 6rem;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .btn.btn-primary {
@@ -115,6 +115,12 @@ input[type="checkbox"] {
 }
 .form-check-label {
   margin-top: 16px;
+}
+
+.form-check-input {
+  position: absolute;
+  margin-top: 0.3rem;
+  margin-left: -9.25rem;
 }
 
 .custom-autocomplete__input[_ngcontent-c4] input[_ngcontent-c4] {

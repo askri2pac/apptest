@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import {FormsModule} from '@angular/forms';
+import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import {FormsModule} from '@angular/forms';
     HomeRoutingModule,
     Ng4GeoautocompleteModule,
     NgxSmartModalModule,
-    FormsModule
+    FormsModule,
+    GooglePlaceModule
   ],
   declarations: [HomeComponent]
 })

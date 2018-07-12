@@ -14,7 +14,7 @@
                placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ...">
 
         <div class="auto-geo col-xs-4 col-sm-4 col-md-4">
-          <ng4geo-autocomplete [userSettings]="userSettings3" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+          <input ngx-google-places-autocomplete [options]="options" #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" placeholder="Où : Lille, Alsace, Bd Voltaire, ..."/>
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">A proximité</label>

@@ -1,7 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import {DataService} from '../../../_services/data.service';
 import {Router} from '@angular/router';
+import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
+import {Address} from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +16,7 @@ export class HomeComponent implements OnInit {
   private bodyText: string;
   search: string;
   place: string;
+  options: any;
 
   public userSettings3: any = {
     showCurrentLocation: false,
@@ -36,6 +39,10 @@ export class HomeComponent implements OnInit {
       this.userSettings3['inputString'] = 'Bangalore, karnataka';
       this.userSettings3 = Object.assign({}, this.userSettings3);
     }, 10000);*/
+   this.options = {
+     types: [],
+     componentRestrictions: { country: 'FR'}
+   };
   }
 
   ngOnInit() {
@@ -43,16 +50,15 @@ export class HomeComponent implements OnInit {
    // this.dataService.currentMessage.subscribe(search => this.search = search);
 
   }
-  autoCompleteCallback1(selectedData: any) {
-    // do any necessery stuff.
-    this.place = selectedData.formatted_address;
+  @ViewChild('placesRef') placesRef: GooglePlaceDirective;
+
+  public handleAddressChange(address: Address) {
+    // Do some stuff
+    console.log(address.formatted_address);
+    this.place = address.formatted_address;
   }
   onSubmit() {
     this.dataService.changeMessage(this.search, this.place);
-  //  console.log('search', this.search);
     this.router.navigate(['/recherche']);
-    console.log('test de log');
-    console.log('place  ', this.place);
   }
-
 }
