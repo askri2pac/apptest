@@ -7,6 +7,7 @@ export class RequestHandlerService {
   constructor () {
   }
   public handleError (error: Response |any) {
+    console.log('front-end NOT OK');
     console.log(error);
     if (error.status === 401) {
       console.log('hello 401');

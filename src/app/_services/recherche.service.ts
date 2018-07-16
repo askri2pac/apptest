@@ -12,10 +12,11 @@ export class RechercheService {
 
   constructor(private http: HttpClient, private requestHandlerService: RequestHandlerService) { }
   findAnnuiare(annuaire: string, adresse: string) {
+    console.log('logged');
     return this.http.post<any>(apiUrl + '/annuaire/find', {annuaire: annuaire, adresse: adresse})
       .pipe(
         map(annFind => {
-          console.log('finded annuaire', annFind);
+          console.log('front-end  OK');
           return annFind;
           }),
         catchError(err => this.requestHandlerService.handleError(err))
