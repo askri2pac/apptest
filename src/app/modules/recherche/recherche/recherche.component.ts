@@ -11,6 +11,7 @@ import {log} from 'util';
 export class RechercheComponent implements OnInit {
   search: string;
   place: string;
+  donnee: any;
 
   constructor(private dataservice: DataService, private recherheService: RechercheService) { }
 
@@ -19,7 +20,8 @@ export class RechercheComponent implements OnInit {
     this.dataservice.currentPlace.subscribe(place => this.place = place);
     this.recherheService.findAnnuiare(this.search, this.place).subscribe(
       data => {
-        console.log('data is ', data);
+        console.log('data is ', data.telephone);
+        this.donnee = data.telephone;
       },
       error2 => {
         console.log('err');

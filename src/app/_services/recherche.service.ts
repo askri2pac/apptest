@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {apiUrl} from '../../api-url';
 import {map} from 'rxjs/operators';
 import {catchError} from 'rxjs/internal/operators';
@@ -10,13 +10,20 @@ import {RequestHandlerService} from './requestHandler';
 })
 export class RechercheService {
 
+
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+    withCredentials: true
+  };
   constructor(private http: HttpClient, private requestHandlerService: RequestHandlerService) { }
   findAnnuiare(annuaire: string, adresse: string) {
     console.log('logged');
-    return this.http.post<any>(apiUrl + '/annuaire/find', {annuaire: annuaire, adresse: adresse})
+    return this.http.post<any>(apiUrl + '/annuaire/find', {annuaire: annuaire, adresse: adresse}, this.httpOptions)
       .pipe(
         map(annFind => {
-          console.log('front-end  OK');
           return annFind;
           }),
         catchError(err => this.requestHandlerService.handleError(err))
