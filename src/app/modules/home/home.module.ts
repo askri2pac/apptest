@@ -7,6 +7,8 @@ import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import {FormsModule} from '@angular/forms';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
+import {NgAutoCompleteModule} from 'ng-auto-complete';
+
 
 @NgModule({
   imports: [
@@ -15,7 +17,8 @@ import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
     Ng4GeoautocompleteModule,
     NgxSmartModalModule,
     FormsModule,
-    GooglePlaceModule
+    GooglePlaceModule,
+    NgAutoCompleteModule,
   ],
   declarations: [HomeComponent]
 })

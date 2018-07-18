@@ -29,6 +29,7 @@ import { ModalSubscribeComponent } from './component/modal-subscribe/modal-subsc
 import { ModalLoginComponent } from './component/modal-login/modal-login.component';
 import {DataService} from './_services/data.service';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
+import {NgAutoCompleteModule} from "ng-auto-complete";
 
 
 
@@ -57,6 +58,7 @@ import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
     NgxSpinnerModule,
     FormsModule,
     GooglePlaceModule,
+    NgAutoCompleteModule,
   ],
   exports: [MatMenuModule],
   providers: [

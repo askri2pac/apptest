@@ -1,9 +1,11 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, NgModule, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import {DataService} from '../../../_services/data.service';
 import {Router} from '@angular/router';
 import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
+import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent} from "ng-auto-complete";
+
 
 @Component({
   selector: 'app-home',
@@ -12,12 +14,30 @@ import {Address} from 'ngx-google-places-autocomplete/objects/address';
   styleUrls: ['./home.component.scss'],
   providers: [NgxSmartModalService],
 })
+
+
 export class HomeComponent implements OnInit {
+  @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
+
+  public group = [
+    CreateNewAutocompleteGroup(
+      'Search / choose in / from list',
+      'completer',
+      [
+        {title: 'Option 1', id: '1'},
+        {title: 'Option 2', id: '2'},
+        {title: 'Option 3', id: '3'},
+        {title: 'Option 4', id: '4'},
+        {title: 'Option 5', id: '5'},
+      ],
+      {titleKey: 'title', childrenKey: null}
+    ),
+  ];
   private bodyText: string;
   search: string;
   place: string;
   options: any;
-
+  formControlValue = '';
   public userSettings3: any = {
     showCurrentLocation: false,
     resOnSearchButtonClickOnly: true,
@@ -25,7 +45,6 @@ export class HomeComponent implements OnInit {
     recentStorageName: 'componentData3',
     showSearchButton: false,
   };
-
   constructor(
     public ngxSmartModalService: NgxSmartModalService,
     private dataService: DataService,
@@ -43,6 +62,10 @@ export class HomeComponent implements OnInit {
      types: [],
      componentRestrictions: { country: 'FR'}
    };
+  }
+
+  Selected(item: SelectedAutocompleteItem) {
+    console.log(item);
   }
 
   ngOnInit() {
