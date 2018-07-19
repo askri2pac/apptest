@@ -7,23 +7,38 @@
     </div>
 
 
-
     <form (submit)="onSubmit()">
       <div class="form-group row">
 
-  <!--      <input type="text" [(ngModel)]="search" name="searchField"  class="form-control col-xs-6 col-sm-6 col-md-6" id="searchInput" aria-describedby="searchHelp"
-               placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ...">-->
+        <div class="col-xs-5 col-sm-5 col-md-5">
+          <mat-form-field class="example-full-width">
+            <input class="form-control col-xs-6 col-sm-6 col-md-6" type="text" [(ngModel)]="search"
+                   placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ..." aria-label="Assignee" matInput
+                   [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
 
-        <ng-autocomplete (selected)="Selected($event)" [classes]="['']" [group]="group"></ng-autocomplete>
-
-
-        <div class="auto-geo col-xs-4 col-sm-4 col-md-4">
-          <input ngx-google-places-autocomplete [options]="options" #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" placeholder="Où : Lille, Alsace, Bd Voltaire, ..."/>
-        <div class="form-check">
+        <div class="col-xs-5 col-sm-5 col-md-5">
+          <mat-form-field>
+            <input class="form-control text_center" matInput ngx-google-places-autocomplete [options]="options"
+                   #placesRef="ngx-places"
+                   (onAddressChange)="handleAddressChange($event)" placeholder="Où : Lille, Alsace, Bd Voltaire, ...">
+          </mat-form-field>
+        </div>
+      <!--  <div class="form-check col-xs-2 col-sm-2 col-md-2">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">A proximité</label>
+        </div>-->
+
+        <div class="check col-xs-2 col-sm-2 col-md-2">
+          <mat-checkbox color="warn">A proximité</mat-checkbox>
         </div>
-        </div>
+
       </div>
 
 
@@ -31,54 +46,54 @@
     </form>
   </div>
 
- <!-- <div class="historique">
-      <div class="last-search">
-        <h2 class="title-last-search">Dernière recherche</h2>
-        <span class="not-found">Vous n'avez pas effectué de recherche</span>
-      </div>
-      <div class="sponsored">
-        <h2 class="title-sponsored">Découvrez ces professionnels</h2>
-        <article>
-          <header>
-            <div class="row-name">
-              <a><h2 class="company-name">Name company</h2></a>
-              <div class="avis">
-                <div class="note">
-                 <a class="stars">
-                   <span class="fa fa-star"></span>
-                   <span class="fa fa-star"></span>
-                   <span class="fa fa-star"></span>
-                   <span class="fa fa-star"></span>
-                   <span class="fa fa-star"></span>
+  <!-- <div class="historique">
+       <div class="last-search">
+         <h2 class="title-last-search">Dernière recherche</h2>
+         <span class="not-found">Vous n'avez pas effectué de recherche</span>
+       </div>
+       <div class="sponsored">
+         <h2 class="title-sponsored">Découvrez ces professionnels</h2>
+         <article>
+           <header>
+             <div class="row-name">
+               <a><h2 class="company-name">Name company</h2></a>
+               <div class="avis">
+                 <div class="note">
+                  <a class="stars">
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  </a>
+                 </div>
+               </div>
+             </div>
+             <div class="adresse">
+               55 Bis av Jean Jaurès, 93220 GAGNY
+             </div>
+             <div>
+             </div>
+           </header>
+           <div>
+             auto-écoles,  permis motos
+           </div>
+           <p class="histo-date">Consulté il y a 20 minutes</p>
+           <footer>
+             <ul>
+               <li>
+                 <a>
+                   <i class="fa fa-pencil"></i>
+                   <span class="write-note">écrire un avis</span>
                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="adresse">
-              55 Bis av Jean Jaurès, 93220 GAGNY
-            </div>
-            <div>
-            </div>
-          </header>
-          <div>
-            auto-écoles,  permis motos
-          </div>
-          <p class="histo-date">Consulté il y a 20 minutes</p>
-          <footer>
-            <ul>
-              <li>
-                <a>
-                  <i class="fa fa-pencil"></i>
-                  <span class="write-note">écrire un avis</span>
-                </a>
-              </li>
-              <li></li>
-            </ul>
-          </footer>
-        </article>
-        <article></article>
-      </div>
-  </div>-->
+               </li>
+               <li></li>
+             </ul>
+           </footer>
+         </article>
+         <article></article>
+       </div>
+   </div>-->
 
   <div class="historical">
 

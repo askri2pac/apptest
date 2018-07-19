@@ -4,12 +4,18 @@ import {DataService} from '../../../_services/data.service';
 import {Router} from '@angular/router';
 import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
-import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent} from "ng-auto-complete";
+import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent} from 'ng-auto-complete';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs/index';
+import {map, startWith} from 'rxjs/internal/operators';
 
+export interface User {
+  name: string;
+}
 
 @Component({
   selector: 'app-home',
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.Emulated,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   providers: [NgxSmartModalService],
@@ -17,8 +23,17 @@ import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComp
 
 
 export class HomeComponent implements OnInit {
-  @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
 
+  myControl = new FormControl();
+  options1: User[] = [
+    {name: 'Mary'},
+    {name: 'Shelley'},
+    {name: 'Igor'}
+  ];
+  filteredOptions: Observable<User[]>;
+
+  @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
+  @ViewChild('placesRef') placesRef: GooglePlaceDirective;
   public group = [
     CreateNewAutocompleteGroup(
       'Search / choose in / from list',
@@ -37,43 +52,34 @@ export class HomeComponent implements OnInit {
   search: string;
   place: string;
   options: any;
-  formControlValue = '';
-  public userSettings3: any = {
-    showCurrentLocation: false,
-    resOnSearchButtonClickOnly: true,
-    inputPlaceholderText: 'Où : Lille, Alsace, Bd Voltaire, ...',
-    recentStorageName: 'componentData3',
-    showSearchButton: false,
-  };
   constructor(
     public ngxSmartModalService: NgxSmartModalService,
     private dataService: DataService,
     private router: Router,
   ) {
-   /* setTimeout(() => {
-      this.userSettings3['inputPlaceholderText'] = 'This is delayed test';
-      this.userSettings3 = Object.assign({}, this.userSettings3);
-    }, 5000);
-    setTimeout(() => {
-      this.userSettings3['inputString'] = 'Bangalore, karnataka';
-      this.userSettings3 = Object.assign({}, this.userSettings3);
-    }, 10000);*/
    this.options = {
      types: [],
      componentRestrictions: { country: 'FR'}
    };
   }
-
-  Selected(item: SelectedAutocompleteItem) {
-    console.log(item);
-  }
-
   ngOnInit() {
     this.bodyText = 'This text can be updated in modal 1';
-   // this.dataService.currentMessage.subscribe(search => this.search = search);
-
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith<string | User>(''),
+        map(value => typeof value === 'string' ? value : value.name),
+        map(name => name ? this._filter(name) : this.options1.slice())
+      );
   }
-  @ViewChild('placesRef') placesRef: GooglePlaceDirective;
+  displayFn(user?: User): string | undefined {
+    return user ? user.name : undefined;
+  }
+
+  private _filter(name: string): User[] {
+    const filterValue = name.toLowerCase();
+
+    return this.options1.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+  }
 
   public handleAddressChange(address: Address) {
     // Do some stuff

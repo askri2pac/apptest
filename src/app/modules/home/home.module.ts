@@ -5,9 +5,12 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
-import {FormsModule} from '@angular/forms';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
-import {NgAutoCompleteModule} from 'ng-auto-complete';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatInputModule} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import {NgAutoCompleteModule} from 'ng-auto-complete';
     NgxSmartModalModule,
     FormsModule,
     GooglePlaceModule,
-    NgAutoCompleteModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   declarations: [HomeComponent]
 })

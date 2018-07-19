@@ -120,7 +120,6 @@ input[type="checkbox"] {
 .form-check-input {
   position: absolute;
   margin-top: 0.3rem;
-  margin-left: -9.25rem;
 }
 
 .custom-autocomplete__input[_ngcontent-c4] input[_ngcontent-c4] {
@@ -270,5 +269,79 @@ input.form-control {
   text-overflow: ellipsis;
   background-clip: unset;
   margin-right: 6px;
+  width: 21rem;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+input#mat-input-0 {
+  background-color: #ffffff;
+}
+.mat-input-element:focus {
+  caret-color: #ffffff;
+}
+
+input#mat-input-1 {
+  background-color: #ffffff;
+}
+
+
+.check{
+  background-color: #ffffff;
+  border: 3px solid rgba(47, 47, 47, 0.26);
+}
+
+.mat-checkbox-layout .mat-checkbox-label {
+  line-height: 24px;
+}
+.mat-checkbox-inner-container{
+}
+
+button.btn.btn-primary {
+  margin-bottom: 34px;
+}
+
+.check.col-xs-2.col-sm-2.col-md-2 {
+  height: 59.5px;
+  margin-top: 19.5px;
+}
+.text_center{
+ vertical-align: middle;
+}
+
+::ng-deep .mat-form-field-placeholder{
+
+  color: #ff2f2a !important;
+}
+
+::ng-deep .mat-focused .mat-form-field-label{
+
+  color: #d9e632 !important;
+}
+
+::ng-deep .mat-form-field-underline .mat-form-field-ripple{
+
+  background-color: #d9e632 !important;
+}
+
+::ng-deep .mat-form-field-underline{
+
+  background-color: #d9e632 !important;
+}
+
+::ng-deep .mat-checkbox-layout .mat-checkbox-label {
+  line-height: 54px!important;
+}
+
+input.form-control[_ngcontent-c6]{
+  background-color: #ffffff;
 }
 
