@@ -31,6 +31,7 @@ import {DataService} from './_services/data.service';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import {NgAutoCompleteModule} from 'ng-auto-complete';
 import {MatInputModule} from '@angular/material';
+import {ActivitiesService} from './_services/activitiesService';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import {MatInputModule} from '@angular/material';
     HttpClient,
     RequestHandlerService,
     AuthGuardService,
+    ActivitiesService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

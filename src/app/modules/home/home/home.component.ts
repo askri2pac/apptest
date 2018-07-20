@@ -1,5 +1,5 @@
 import {Component, NgModule, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import { NgxSmartModalService } from 'ngx-smart-modal';
+import {NgxSmartModalService} from 'ngx-smart-modal';
 import {DataService} from '../../../_services/data.service';
 import {Router} from '@angular/router';
 import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
@@ -8,6 +8,7 @@ import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComp
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/index';
 import {map, startWith} from 'rxjs/internal/operators';
+import {ActivitiesService} from '../../../_services/activitiesService';
 
 export interface User {
   name: string;
@@ -23,44 +24,34 @@ export interface User {
 
 
 export class HomeComponent implements OnInit {
-
-  myControl = new FormControl();
-  options1: User[] = [
-    {name: 'Mary'},
-    {name: 'Shelley'},
-    {name: 'Igor'}
-  ];
-  filteredOptions: Observable<User[]>;
-
   @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
-  public group = [
-    CreateNewAutocompleteGroup(
-      'Search / choose in / from list',
-      'completer',
-      [
-        {title: 'Option 1', id: '1'},
-        {title: 'Option 2', id: '2'},
-        {title: 'Option 3', id: '3'},
-        {title: 'Option 4', id: '4'},
-        {title: 'Option 5', id: '5'},
-      ],
-      {titleKey: 'title', childrenKey: null}
-    ),
-  ];
+
+  myControl = new FormControl();
   private bodyText: string;
   search: string;
   place: string;
   options: any;
-  constructor(
-    public ngxSmartModalService: NgxSmartModalService,
-    private dataService: DataService,
-    private router: Router,
-  ) {
-   this.options = {
-     types: [],
-     componentRestrictions: { country: 'FR'}
-   };
+  activities: any;
+  optionsActivies: any;
+  filteredOptions: any;
+
+/*   optionsActivities: User[] = this.optionsActivies;
+  filteredOptions: Observable<User[]>;*/
+
+  constructor(public ngxSmartModalService: NgxSmartModalService,
+              private dataService: DataService,
+              private router: Router,
+              private activiteService: ActivitiesService) {
+    this.options = {
+      types: [],
+      componentRestrictions: {country: 'FR'}
+    };
+
+
+    this.activities =  this.optionsActivies;
+    this.filteredOptions  = Observable.fromPromise(this.getActivities());
+
   }
   ngOnInit() {
     this.bodyText = 'This text can be updated in modal 1';
@@ -68,9 +59,10 @@ export class HomeComponent implements OnInit {
       .pipe(
         startWith<string | User>(''),
         map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this._filter(name) : this.options1.slice())
+        map(name => name ? this._filter(name) : this.filteredOptions.slice())
       );
   }
+
   displayFn(user?: User): string | undefined {
     return user ? user.name : undefined;
   }
@@ -78,7 +70,7 @@ export class HomeComponent implements OnInit {
   private _filter(name: string): User[] {
     const filterValue = name.toLowerCase();
 
-    return this.options1.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+    return this.filteredOptions.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
   }
 
   public handleAddressChange(address: Address) {
@@ -86,8 +78,25 @@ export class HomeComponent implements OnInit {
     console.log(address.formatted_address);
     this.place = address.formatted_address;
   }
+
   onSubmit() {
+    console.log('search ==>', this.search);
     this.dataService.changeMessage(this.search, this.place);
     this.router.navigate(['/recherche']);
+  }
+
+  getNames() {
+    // todo
+  }
+  getPhoneNumbers() {
+    // todo
+  }
+   getActivities() {
+    // todo
+     // this.activiteService.getActivities()
+   return new Promise((resolve, reject) => {
+   this.optionsActivies = resolve(this.activiteService.getActivities());
+   return this.optionsActivies;
+   });
   }
 }
