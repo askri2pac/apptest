@@ -2,7 +2,6 @@
 
   <div class="engine-search">
     <div class="label-hour">
-      <label class="label1"><b>Horaires, Avis, Réservations</b></label>
       <label class="label2">Trouvez plus que des coordonnées</label>
     </div>
 
@@ -12,9 +11,10 @@
 
         <div class="col-xs-5 col-sm-5 col-md-5">
           <mat-form-field class="example-full-width">
-            <input class="form-control col-xs-6 col-sm-6 col-md-6" type="text" [(ngModel)]="search"
+           <!-- <input class="form-control col-xs-6 col-sm-6 col-md-6" id="search1" type="text" [(ngModel)]="search"
                    placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ..." aria-label="Assignee" matInput
-                   [formControl]="myControl" [matAutocomplete]="auto">
+                   [formControl]="myControl" [matAutocomplete]="auto">-->
+            <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="search" ngbTypeahead="search"/>
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
               <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                 {{option.name}}

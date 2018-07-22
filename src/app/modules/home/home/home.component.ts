@@ -1,4 +1,4 @@
-import {Component, NgModule, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, NgModule, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {NgxSmartModalService} from 'ngx-smart-modal';
 import {DataService} from '../../../_services/data.service';
 import {Router} from '@angular/router';
@@ -9,6 +9,7 @@ import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/index';
 import {map, startWith} from 'rxjs/internal/operators';
 import {ActivitiesService} from '../../../_services/activitiesService';
+import { fromEvent } from 'rxjs';
 
 export interface User {
   name: string;
@@ -23,7 +24,7 @@ export interface User {
 })
 
 
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
 
@@ -32,12 +33,11 @@ export class HomeComponent implements OnInit {
   search: string;
   place: string;
   options: any;
+  activities$: any;
   activities: any;
   optionsActivies: any;
   filteredOptions: any;
-
-/*   optionsActivities: User[] = this.optionsActivies;
-  filteredOptions: Observable<User[]>;*/
+  public model: any;
 
   constructor(public ngxSmartModalService: NgxSmartModalService,
               private dataService: DataService,
@@ -47,20 +47,17 @@ export class HomeComponent implements OnInit {
       types: [],
       componentRestrictions: {country: 'FR'}
     };
+    this.reload();
 
-
-    this.activities =  this.optionsActivies;
-    this.filteredOptions  = Observable.fromPromise(this.getActivities());
-
+  }
+  reload() {
+    this.activities$ = this.activiteService.getActivities();
+    this.activities$.subscribe(
+      activities => this.activities = activities
+    );
   }
   ngOnInit() {
     this.bodyText = 'This text can be updated in modal 1';
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith<string | User>(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this._filter(name) : this.filteredOptions.slice())
-      );
   }
 
   displayFn(user?: User): string | undefined {
@@ -98,5 +95,13 @@ export class HomeComponent implements OnInit {
    this.optionsActivies = resolve(this.activiteService.getActivities());
    return this.optionsActivies;
    });
+  }
+
+  ngAfterViewInit(): void {
+    console.log(this.activities)
+    const  input: any = document.getElementById('search1');
+      console.log('input is ==>', input.value);
+       const search$ = fromEvent(input, 'keyup')
+         .do(() => console.log(this.activities));
   }
 }
