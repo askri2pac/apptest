@@ -1,13 +1,23 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {apiUrl} from '../../api-url';
-import {map} from 'rxjs/operators';
-import {addToViewTree} from '@angular/core/src/render3/instructions';
 import {catchError} from 'rxjs/internal/operators';
 import {RequestHandlerService} from './requestHandler';
+import {Observable} from 'rxjs/index';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/map';
+import 'rxjs/operators/map';
+import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import 'rxjs/add/operator/debounceTime';
+
+
 
 @Injectable()
 export class ActivitiesService {
+
+  baseUrl: 'http://localhost:3000';
+  queryUrl: '?search=';
 
   httOptions = {
     headers: new HttpHeaders({
@@ -16,12 +26,18 @@ export class ActivitiesService {
     withCredentials: true
   };
  constructor(private http: HttpClient, private requestHandlerService: RequestHandlerService) {}
- getActivities() {
-  return this.http.get<any>(apiUrl + '/activities/getAllActivities', this.httOptions)
+  search(terms: Observable<string>) {
+    return terms.pipe(
+      debounceTime(400),
+      distinctUntilChanged(),
+      switchMap(term => this.getActivities(term))
+    );
+  }
+ getActivities(term) {
+   console.log('elo');
+  return this.http.get<any>(this.baseUrl + this.queryUrl + term, this.httOptions)
     .pipe(
-      map(activities => {
-        return activities;
-        }),
+      map(res => res.json()),
       catchError(err => this.requestHandlerService.handleError(err))
     );
  }

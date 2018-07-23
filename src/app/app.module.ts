@@ -33,7 +33,6 @@ import {NgAutoCompleteModule} from 'ng-auto-complete';
 import {MatInputModule} from '@angular/material';
 import {ActivitiesService} from './_services/activitiesService';
 
-
 @NgModule({
   declarations: [
     AppComponent,

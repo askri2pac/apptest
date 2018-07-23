@@ -13,14 +13,25 @@
           <mat-form-field class="example-full-width">
            <!-- <input class="form-control col-xs-6 col-sm-6 col-md-6" id="search1" type="text" [(ngModel)]="search"
                    placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ..." aria-label="Assignee" matInput
-                   [formControl]="myControl" [matAutocomplete]="auto">-->
-            <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="search" ngbTypeahead="search"/>
+                   [formControl]="myControl" [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
               <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                 {{option.name}}
               </mat-option>
-            </mat-autocomplete>
+            </mat-autocomplete>-->
+            <input class="form-control col-xs-6 col-sm-6 col-md-6" name="saerh" id="search1" type="text" [(ngModel)]="search"
+                   placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ..." aria-label="Assignee" matInput
+                   (keyup)="searchTerms$.next($event.target.value)">
           </mat-form-field>
+
+
+          <ul *ngIf="results">
+            <li *ngFor="let result of results | slice:0:9">
+              <a href="{{ result.latest }}" target="_blank">
+                {{ result.name }}
+              </a>
+            </li>
+          </ul>
         </div>
 
         <div class="col-xs-5 col-sm-5 col-md-5">
