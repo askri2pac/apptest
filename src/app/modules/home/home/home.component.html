@@ -10,41 +10,42 @@
       <div class="form-group row">
 
         <div class="col-xs-5 col-sm-5 col-md-5">
+
           <mat-form-field class="example-full-width">
-           <!-- <input class="form-control col-xs-6 col-sm-6 col-md-6" id="search1" type="text" [(ngModel)]="search"
-                   placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ..." aria-label="Assignee" matInput
-                   [formControl]="myControl" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option.name}}
-              </mat-option>
-            </mat-autocomplete>-->
-            <input class="form-control col-xs-6 col-sm-6 col-md-6" name="saerh" id="search1" type="text" [(ngModel)]="search"
+            <input class="form-control col-xs-6 col-sm-6 col-md-6"
+                   style="caret-color: auto;"
+                   autocomplete="off"
+                   [matMenuTriggerFor]="menu_search" name="search" id="search1" type="text"
+                   [(ngModel)]="search"
                    placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ..." aria-label="Assignee" matInput
                    (keyup)="searchTerms$.next($event.target.value)">
           </mat-form-field>
 
 
-          <ul *ngIf="results">
-            <li *ngFor="let result of results | slice:0:9">
-              <a href="{{ result.latest }}" target="_blank">
-                {{ result.name }}
-              </a>
-            </li>
-          </ul>
+
+          <mat-menu yPosition="below" xPosition="after" [overlapTrigger]="false" class="menu" #menu_search="matMenu">
+            <ng-template matMenuContent>
+            <ul *ngIf="results" style="background-color: white">
+              <li  *ngFor="let result of results | slice:0:5" mat-menu-item>
+                {{ result.nom }}
+              </li>
+            </ul>
+            </ng-template>
+          </mat-menu>
+
         </div>
 
         <div class="col-xs-5 col-sm-5 col-md-5">
           <mat-form-field>
-            <input class="form-control text_center" matInput ngx-google-places-autocomplete [options]="options"
+            <input class="form-control text_center" style="caret-color: auto;" matInput ngx-google-places-autocomplete [options]="options"
                    #placesRef="ngx-places"
                    (onAddressChange)="handleAddressChange($event)" placeholder="Où : Lille, Alsace, Bd Voltaire, ...">
           </mat-form-field>
         </div>
-      <!--  <div class="form-check col-xs-2 col-sm-2 col-md-2">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">A proximité</label>
-        </div>-->
+        <!--  <div class="form-check col-xs-2 col-sm-2 col-md-2">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">A proximité</label>
+          </div>-->
 
         <div class="check col-xs-2 col-sm-2 col-md-2">
           <mat-checkbox color="warn">A proximité</mat-checkbox>
@@ -108,6 +109,9 @@
 
   <div class="historical">
 
+    <!--| slice:0:9-->
+
   </div>
+
 
 </div>

@@ -10,6 +10,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 @NgModule({
@@ -24,6 +27,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatInputModule,
     ReactiveFormsModule,
     MatCheckboxModule,
+    MatListModule,
+    MatMenuModule,
   ],
   declarations: [HomeComponent]
 })

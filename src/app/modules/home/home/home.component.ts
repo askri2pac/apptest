@@ -1,14 +1,15 @@
 import {AfterViewInit, Component, NgModule, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import {NgxSmartModalService} from 'ngx-smart-modal';
+import {NgxSmartModalModule, NgxSmartModalService} from 'ngx-smart-modal';
 import {DataService} from '../../../_services/data.service';
 import {Router} from '@angular/router';
 import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
 import {NgAutocompleteComponent} from 'ng-auto-complete';
 import {FormControl} from '@angular/forms';
-import {Observable, Subject} from 'rxjs/index';
+import {Subject} from 'rxjs/index';
 import {ActivitiesService} from '../../../_services/activitiesService';
-import { fromEvent } from 'rxjs';
+import {MatMenuTrigger} from '@angular/material';
+
 
 export interface User {
   name: string;
@@ -22,12 +23,12 @@ export interface User {
   providers: [NgxSmartModalService],
 })
 
-
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild(NgAutocompleteComponent) public completer: NgAutocompleteComponent;
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  results: Object;
+  results: any;
   searchTerms$ = new Subject<string>();
   myControl = new FormControl();
   private bodyText: string;
@@ -40,29 +41,30 @@ export class HomeComponent implements OnInit, AfterViewInit {
   filteredOptions: any;
   public model: any;
 
-  constructor(
-    public ngxSmartModalService: NgxSmartModalService,
-    private dataService: DataService,
-    private router: Router,
-    private activiteService: ActivitiesService
-  ) {
+  constructor(public ngxSmartModalService: NgxSmartModalService,
+              private dataService: DataService,
+              private router: Router,
+              private activiteService: ActivitiesService) {
     this.options = {
       types: [],
       componentRestrictions: {country: 'FR'}
     };
     this.activiteService.search(this.searchTerms$)
       .subscribe(results => {
-        this.results = results;
+         this.results = results;
+        this.trigger.openMenu();
+        console.log('resultes returned', this.results);
       });
-   // this.reload();
-
+    // this.reload();
   }
+
   reload() {
     /*this.activities$ = this.activiteService.getActivities();
     this.activities$.subscribe(
       activities => this.activities = activities
     );*/
   }
+
   ngOnInit() {
     this.bodyText = 'This text can be updated in modal 1';
     // this.reload();
@@ -93,23 +95,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
   getNames() {
     // todo
   }
+
   getPhoneNumbers() {
     // todo
   }
-   getActivities() {
+
+  getActivities() {
     // todo
-     // this.activiteService.getActivities()
-  /* return new Promise((resolve, reject) => {
-   this.optionsActivies = resolve(this.activiteService.getActivities());
-   return this.optionsActivies;
-   });*/
+    // this.activiteService.getActivities()
+    /* return new Promise((resolve, reject) => {
+     this.optionsActivies = resolve(this.activiteService.getActivities());
+     return this.optionsActivies;
+     });*/
   }
 
   ngAfterViewInit(): void {
-   // console.log(this.activities);
-  /*  const  input: any = document.getElementById('search1');
-      console.log('input is ==>', input.value);
-       const search$ = fromEvent(input, 'keyup')
-         .do(() => console.log(this.activities));
-  }*/
+    // console.log(this.activities);
+    /*  const  input: any = document.getElementById('search1');
+        console.log('input is ==>', input.value);
+         const search$ = fromEvent(input, 'keyup')
+           .do(() => console.log(this.activities));
+    }*/
+  }
 }

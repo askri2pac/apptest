@@ -27,18 +27,22 @@ export class ActivitiesService {
   };
  constructor(private http: HttpClient, private requestHandlerService: RequestHandlerService) {}
   search(terms: Observable<string>) {
-    return terms.pipe(
-      debounceTime(400),
-      distinctUntilChanged(),
-      switchMap(term => this.getActivities(term))
-    );
+      return terms.pipe(
+        debounceTime(400),
+        distinctUntilChanged(),
+        switchMap(term => this.getActivities(term))
+      );
   }
  getActivities(term) {
-   console.log('elo');
-  return this.http.get<any>(this.baseUrl + this.queryUrl + term, this.httOptions)
-    .pipe(
-      map(res => res.json()),
-      catchError(err => this.requestHandlerService.handleError(err))
-    );
+   const _url = 'http://localhost:3000/' + 'activities/getAllActivities/' + term;
+     console.log('hell no ');
+     return this.http.get<any>(_url, this.httOptions)
+       .pipe(
+         map(this.extractData),
+         catchError(err => this.requestHandlerService.handleError(err))
+       );
  }
+  public extractData(res: Response | any) {
+    return res || { };
+  }
 }

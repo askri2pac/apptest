@@ -347,3 +347,57 @@ input.form-control[_ngcontent-c6]{
 ::ng-deep .mat-form-field-infix{
   width: 320px!important;
 }
+
+.notification-drop {
+  li {
+    a:not(.last_info) {
+      i {
+        color: white;
+        padding-right: 5px;
+        font-size: 11px;
+      }
+    }
+    a {
+      overflow: hidden;
+      display: block;
+      color: #999;
+      padding: 10px!important;
+      border-bottom: 1px solid #222;
+      text-align: left;
+      .time_info {
+        color: #fff;
+        font-size: 10px;
+        padding-left: 15px;
+        float: right;
+        margin-top: 3px;
+      }
+      i {
+        color: #999;
+        padding-right: 10px;
+        font-size: 18px;
+      }
+      &:hover {
+        background-color: #f6f7fa;
+        color: #262626;
+        .time_info {
+          color: white;
+        }
+      }
+    }
+    .last_info {
+      text-align: right;
+      text-transform: uppercase;
+      font-size: 10px;
+    }
+  }
+}
+::ng-deep .mat-menu-content {
+  background-color: white;
+}
+
+ul.ng-star-inserted {
+  padding-left: 0;
+}
+::ng-deep .mat-menu-content {
+  padding-top: 0;
+}
