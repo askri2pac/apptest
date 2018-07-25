@@ -9,6 +9,8 @@ import {FormControl} from '@angular/forms';
 import {Subject} from 'rxjs/index';
 import {ActivitiesService} from '../../../_services/activitiesService';
 import {MatMenuTrigger} from '@angular/material';
+import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operators';
+
 
 
 export interface User {
@@ -30,6 +32,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   results: any;
   searchTerms$ = new Subject<string>();
+  selectedValue$ = new Subject<string>();
   myControl = new FormControl();
   private bodyText: string;
   search: string;
@@ -56,6 +59,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
         console.log('resultes returned', this.results);
       });
     // this.reload();
+    // this.selectedValue$.pipe(
+    //   debounceTime(400),
+    //   distinctUntilChanged(),
+    //   switchMap(term => this.setInputValue(term))
+    // );
+    console.log();
   }
 
   reload() {
@@ -116,5 +125,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
          const search$ = fromEvent(input, 'keyup')
            .do(() => console.log(this.activities));
     }*/
+  }
+  setInputValue(term){
+    console.log('sssssssssssssssssss', term);
+    // return term.nom;
   }
 }

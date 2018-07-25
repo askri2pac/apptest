@@ -401,3 +401,8 @@ ul.ng-star-inserted {
 ::ng-deep .mat-menu-content {
   padding-top: 0;
 }
+
+::ng-deep .mat-menu-panel{
+  min-width:336px;
+  max-width:336px;
+}
