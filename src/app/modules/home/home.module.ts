@@ -12,6 +12,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+import {ClickOutsideModule} from 'ng-click-outside';
 
 
 
@@ -29,6 +30,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatCheckboxModule,
     MatListModule,
     MatMenuModule,
+    ClickOutsideModule,
   ],
   declarations: [HomeComponent]
 })

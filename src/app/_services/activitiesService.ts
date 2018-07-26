@@ -35,7 +35,6 @@ export class ActivitiesService {
   }
  getActivities(term) {
    const _url = 'http://localhost:3000/' + 'activities/getAllActivities/' + term;
-     console.log('hell no ');
      return this.http.get<any>(_url, this.httOptions)
        .pipe(
          map(this.extractData),

@@ -9,36 +9,31 @@
     <form (submit)="onSubmit()">
       <div class="form-group row">
 
-        <div class="col-xs-5 col-sm-5 col-md-5">
+        <div class="col-xs-5 col-sm-5 col-md-5" (clickOutside)="onClickedOutside($event)">
 
           <mat-form-field class="example-full-width">
-           
-                   <input matInput value="info" [(ngModel)]="search"
+
+            <input (click)="showlist()" id="input-search" matInput value="{{search}}" [(ngModel)]="search"
                    class="form-control col-xs-6 col-sm-6 col-md-6"
-                   [matMenuTriggerFor]="menu_search"
                    placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ..."
                    (keyup)="searchTerms$.next($event.target.value)"
-                   style="caret-color: auto;">
+                   style="caret-color: auto;" [ngModelOptions]="{standalone: true}"
+                   autocomplete="off">
           </mat-form-field>
-         
-
-          <mat-menu yPosition="below" xPosition="after" [overlapTrigger]="false" class="menu" #menu_search="matMenu">
-            <ng-template matMenuContent>
-            <ul *ngIf="results" style="background-color: white">
-              <li  *ngFor="let result of results | slice:0:5 " mat-menu-item ng-click="selectedValue$.next('ere')" >
-                {{ result.nom }}
+          <div *ngIf="results" id="dop-list"  class="list-search">
+            <ul class="items-search" style="background-color: white">
+              <li  *ngFor="let result of results | slice:0:5 " (click)="bindselectd(result)">
+                <a>{{ result.nom }}</a>
               </li>
             </ul>
-            </ng-template>
-          </mat-menu>
-
-          {{selectedValue$}}nassim
+          </div>
 
         </div>
 
-        <div class="col-xs-5 col-sm-5 col-md-5">
+        <div  class="col-xs-5 col-sm-5 col-md-5">
           <mat-form-field>
-            <input class="form-control text_center" style="caret-color: auto;" matInput ngx-google-places-autocomplete [options]="options"
+            <input class="form-control text_center" style="caret-color: auto;" matInput ngx-google-places-autocomplete
+                   [options]="options"
                    #placesRef="ngx-places"
                    (onAddressChange)="handleAddressChange($event)" placeholder="Où : Lille, Alsace, Bd Voltaire, ...">
           </mat-form-field>
@@ -114,5 +109,7 @@
 
   </div>
 
-
 </div>
+
+
+

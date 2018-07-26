@@ -37,7 +37,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private bodyText: string;
   search: string;
   place: string;
+  idactivity: any;
   options: any;
+  chosenvalue: any;
   activities$: any;
   activities: any;
   optionsActivies: any;
@@ -55,29 +57,39 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.activiteService.search(this.searchTerms$)
       .subscribe(results => {
          this.results = results;
-        this.trigger.openMenu();
+        // this.trigger.openMenu();
         console.log('resultes returned', this.results);
       });
-    // this.reload();
-    // this.selectedValue$.pipe(
-    //   debounceTime(400),
-    //   distinctUntilChanged(),
-    //   switchMap(term => this.setInputValue(term))
-    // );
-    console.log();
+     this.selectedValue$.pipe(
+       debounceTime(400),
+       distinctUntilChanged(),
+       switchMap(term => this.setInputValue(term))
+     );
   }
-
-  reload() {
-    /*this.activities$ = this.activiteService.getActivities();
-    this.activities$.subscribe(
-      activities => this.activities = activities
-    );*/
+  onClickedOutside(event: any) {
+   // event.preventDefault();
+    if (document.getElementById('dop-list')) {
+      document.getElementById('dop-list').hidden = true;
+    }
+  }
+  showlist() {
+    if (document.getElementById('dop-list')) {
+      document.getElementById('dop-list').hidden = false;
+    }
+  }
+  bindselectd(item) {
+    this.search = item.nom;
+    this.idactivity = item._id;
+    document.getElementById('input-search').setAttribute('value', item.nom);
+    if (document.getElementById('dop-list')) {
+      document.getElementById('dop-list').hidden = true;
+    }
   }
 
   ngOnInit() {
     this.bodyText = 'This text can be updated in modal 1';
     // this.reload();
-    console.log(this.activities);
+  //  console.log(this.activities);
   }
 
   displayFn(user?: User): string | undefined {
@@ -97,7 +109,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   onSubmit() {
     console.log('search ==>', this.search);
-    this.dataService.changeMessage(this.search, this.place);
+    console.log('place ==>', this.place);
+    this.dataService.changeMessage(this.idactivity, this.place);
     this.router.navigate(['/recherche']);
   }
 
@@ -126,8 +139,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
            .do(() => console.log(this.activities));
     }*/
   }
-  setInputValue(term){
+  setInputValue(term) {
     console.log('sssssssssssssssssss', term);
-    // return term.nom;
+     return term.nom;
   }
 }

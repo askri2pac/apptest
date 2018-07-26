@@ -406,3 +406,30 @@ ul.ng-star-inserted {
   min-width:336px;
   max-width:336px;
 }
+
+.list-search {
+  position: absolute;
+  text-align: left;
+  top: 87px;
+  min-width: 21rem;
+  max-width: 21rem;
+}
+ul.ng-star-inserted {
+  padding: 17px;
+}
+li.ng-star-inserted {
+  padding: 5px;
+}
+::ng-deep .mat-form-field-wrapper {
+ // padding-bottom: 0!important;
+}
+
+.items-search :hover {
+  background: #0078FF;
+  color: #ffffff;
+  cursor: default;
+}
+::ng-deep ul.items-search {
+  padding-left: 20px;
+}
+

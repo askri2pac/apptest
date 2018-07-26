@@ -20,8 +20,8 @@ export class RechercheComponent implements OnInit {
     this.dataservice.currentPlace.subscribe(place => this.place = place);
     this.recherheService.findAnnuiare(this.search, this.place).subscribe(
       data => {
-        console.log('data is ', data.telephone);
-        this.donnee = data.telephone;
+        console.log('data is ', data[0].telephone);
+        this.donnee = data[0].telephone;
       },
       error2 => {
         console.log('err');

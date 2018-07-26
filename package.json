@@ -33,6 +33,7 @@
     "jquery": "^3.3.1",
     "keyboardevent-key-polyfill": "^1.1.0",
     "ng-auto-complete": "^2.10.5",
+    "ng-click-outside": "^4.0.0",
     "ng-http-loader": "^2.3.0",
     "ng4-geoautocomplete": "^0.1.0",
     "ngx-google-places-autocomplete": "^2.0.1",
