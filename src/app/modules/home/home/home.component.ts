@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private bodyText: string;
   search: string;
   place: string;
+  fullAdresse: any;
   idactivity: any;
   options: any;
   chosenvalue: any;
@@ -45,6 +46,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   optionsActivies: any;
   filteredOptions: any;
   public model: any;
+  validate: boolean;
 
   constructor(public ngxSmartModalService: NgxSmartModalService,
               private dataService: DataService,
@@ -105,13 +107,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // Do some stuff
     console.log(address.formatted_address);
     this.place = address.formatted_address;
+    this.fullAdresse = address;
   }
 
   onSubmit() {
     console.log('search ==>', this.search);
     console.log('place ==>', this.place);
-    this.dataService.changeMessage(this.idactivity, this.place);
-    this.router.navigate(['/recherche']);
+    if (typeof this.fullAdresse !== 'object') {
+      this.validate = false;
+    } else {
+      this.validate = true;
+      this.dataService.changeMessage(this.idactivity, this.place);
+      this.router.navigate(['/recherche']);
+    }
+    /*this.dataService.changeMessage(this.idactivity, this.place);
+    this.router.navigate(['/recherche']);*/
+
   }
 
   getNames() {

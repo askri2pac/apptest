@@ -418,7 +418,7 @@ ul.ng-star-inserted {
   padding: 17px;
 }
 li.ng-star-inserted {
-  padding: 5px;
+  padding: 13px;
 }
 ::ng-deep .mat-form-field-wrapper {
  // padding-bottom: 0!important;
@@ -430,6 +430,13 @@ li.ng-star-inserted {
   cursor: default;
 }
 ::ng-deep ul.items-search {
-  padding-left: 20px;
+  padding-left: 0px;
+}
+.alert-danger {
+  top: 87px;
+  color: #ffffff;
+  background-color: #ea5957;
+  border-color: #ea5957;
+  border-radius:0;
 }
 

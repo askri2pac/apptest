@@ -20,9 +20,9 @@
                    style="caret-color: auto;" [ngModelOptions]="{standalone: true}"
                    autocomplete="off">
           </mat-form-field>
-          <div *ngIf="results" id="dop-list"  class="list-search">
+          <div *ngIf="results" id="dop-list" class="list-search">
             <ul class="items-search" style="background-color: white">
-              <li  *ngFor="let result of results | slice:0:5 " (click)="bindselectd(result)">
+              <li *ngFor="let result of results | slice:0:5 " (click)="bindselectd(result)">
                 <a>{{ result.nom }}</a>
               </li>
             </ul>
@@ -30,13 +30,19 @@
 
         </div>
 
-        <div  class="col-xs-5 col-sm-5 col-md-5">
+        <div class="col-xs-5 col-sm-5 col-md-5">
           <mat-form-field>
             <input class="form-control text_center" style="caret-color: auto;" matInput ngx-google-places-autocomplete
                    [options]="options"
                    #placesRef="ngx-places"
                    (onAddressChange)="handleAddressChange($event)" placeholder="Où : Lille, Alsace, Bd Voltaire, ...">
           </mat-form-field>
+          <div *ngIf="validate === false"
+               class="alert alert-danger" style="position: absolute">
+            <div>
+              La zone géographique n’a pas été reconnue, modifiez votre saisie.
+            </div>
+          </div>
         </div>
         <!--  <div class="form-check col-xs-2 col-sm-2 col-md-2">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
