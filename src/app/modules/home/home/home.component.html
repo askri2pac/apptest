@@ -22,7 +22,7 @@
           </mat-form-field>
           <div *ngIf="results" id="dop-list" class="list-search">
             <ul class="items-search" style="background-color: white">
-              <li *ngFor="let result of results | slice:0:5 " (click)="bindselectd(result)">
+              <li *ngFor="let result of results " (click)="bindselectd(result)">
                 <a>{{ result.nom }}</a>
               </li>
             </ul>

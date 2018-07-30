@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  results: any;
+  results: [any];
   searchTerms$ = new Subject<string>();
   selectedValue$ = new Subject<string>();
   myControl = new FormControl();
@@ -56,12 +56,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
       types: [],
       componentRestrictions: {country: 'FR'}
     };
-    this.activiteService.search(this.searchTerms$)
-      .subscribe(results => {
-         this.results = results;
-        // this.trigger.openMenu();
-        console.log('resultes returned', this.results);
-      });
+      this.activiteService.search(this.searchTerms$)
+        .subscribe(results => {
+          this.results = results;
+          // this.trigger.openMenu();
+          console.log('resultes returned', this.results);
+        });
      this.selectedValue$.pipe(
        debounceTime(400),
        distinctUntilChanged(),
@@ -105,19 +105,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   public handleAddressChange(address: Address) {
     // Do some stuff
-    console.log(address.formatted_address);
     this.place = address.formatted_address;
     this.fullAdresse = address;
   }
 
   onSubmit() {
-    console.log('search ==>', this.search);
-    console.log('place ==>', this.place);
     if (typeof this.fullAdresse !== 'object') {
       this.validate = false;
     } else {
+      const isnum  = /^\d+$/.test(this.search);
+      if (isnum) {
+        this.dataService.sendPhoneNumber(this.search, this.place);
+      } else {
+        this.dataService.changeMessage(this.idactivity, this.place);
+      }
       this.validate = true;
-      this.dataService.changeMessage(this.idactivity, this.place);
       this.router.navigate(['/recherche']);
     }
     /*this.dataService.changeMessage(this.idactivity, this.place);

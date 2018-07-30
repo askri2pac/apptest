@@ -8,8 +8,9 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/operators/map';
-import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { debounceTime, map, distinctUntilChanged, switchMap, mergeMap } from 'rxjs/operators';
 import 'rxjs/add/operator/debounceTime';
+import {flatMap} from 'tslint/lib/utils';
 
 
 
@@ -42,6 +43,7 @@ export class ActivitiesService {
        );
  }
   public extractData(res: Response | any) {
+   console.log('res ===>>', res);
     return res || { };
   }
 }

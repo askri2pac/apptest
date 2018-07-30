@@ -19,7 +19,7 @@ export class RechercheService {
     withCredentials: true
   };
   constructor(private http: HttpClient, private requestHandlerService: RequestHandlerService) { }
-  findAnnuiare(annuaire: string, adresse: string) {
+  findAnnuiare(annuaire: any, adresse: string) {
     console.log('id', annuaire);
     return this.http.post<any>(apiUrl + '/annuaire/find', {annuaire: annuaire, adresse: adresse}, this.httpOptions)
       .pipe(
