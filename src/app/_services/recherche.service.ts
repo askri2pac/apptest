@@ -20,7 +20,6 @@ export class RechercheService {
   };
   constructor(private http: HttpClient, private requestHandlerService: RequestHandlerService) { }
   findAnnuiare(annuaire: any, adresse: string) {
-    console.log('id', annuaire);
     return this.http.post<any>(apiUrl + '/annuaire/find', {annuaire: annuaire, adresse: adresse}, this.httpOptions)
       .pipe(
         map(annFind => {

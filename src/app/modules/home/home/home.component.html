@@ -13,7 +13,7 @@
 
           <mat-form-field class="example-full-width">
 
-            <input (click)="showlist()" id="input-search" matInput value="{{search}}" [(ngModel)]="search"
+            <input (click)="showlist()" id="input-search" matInput [(ngModel)]="searchvalue"
                    class="form-control col-xs-6 col-sm-6 col-md-6"
                    placeholder="Quoi, Qui : hôtel avec piscine, Chez Lily, ..."
                    (keyup)="searchTerms$.next($event.target.value)"
@@ -22,8 +22,9 @@
           </mat-form-field>
           <div *ngIf="results" id="dop-list" class="list-search">
             <ul class="items-search" style="background-color: white">
-              <li *ngFor="let result of results " (click)="bindselectd(result)">
-                <a>{{ result.nom }}</a>
+              <li *ngFor="let result of results | slice:0:5 " (click)="bindselectd(result)">
+                <a *ngIf="result.title">{{ result.title }}</a>
+                <a *ngIf=" ! result.title">{{ result }}</a>
               </li>
             </ul>
           </div>

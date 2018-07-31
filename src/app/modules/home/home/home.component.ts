@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   myControl = new FormControl();
   private bodyText: string;
   search: string;
+  searchvalue: string;
   place: string;
   fullAdresse: any;
   idactivity: any;
@@ -60,7 +61,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
         .subscribe(results => {
           this.results = results;
           // this.trigger.openMenu();
-          console.log('resultes returned', this.results);
         });
      this.selectedValue$.pipe(
        debounceTime(400),
@@ -80,18 +80,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
   bindselectd(item) {
-    this.search = item.nom;
-    this.idactivity = item._id;
-    document.getElementById('input-search').setAttribute('value', item.nom);
-    if (document.getElementById('dop-list')) {
-      document.getElementById('dop-list').hidden = true;
+    if (typeof item === 'string') {
+      this.searchvalue = item;
+      /*this.search = item;*/
+      /*document.getElementById('input-search').setAttribute('value', item);*/
+      if (document.getElementById('dop-list')) {
+        document.getElementById('dop-list').hidden = true;
+      }
+    } else if (typeof item === 'object') {
+      this.searchvalue = item.title;
+      this.idactivity = item.id;
+      /*this.search = item.id;*/
+      /*document.getElementById('input-search').setAttribute('value', item.title);*/
+      if (document.getElementById('dop-list')) {
+        document.getElementById('dop-list').hidden = true;
+      }
     }
   }
 
   ngOnInit() {
     this.bodyText = 'This text can be updated in modal 1';
-    // this.reload();
-  //  console.log(this.activities);
   }
 
   displayFn(user?: User): string | undefined {
@@ -110,20 +118,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
-    if (typeof this.fullAdresse !== 'object') {
-      this.validate = false;
-    } else {
-      const isnum  = /^\d+$/.test(this.search);
+    if (typeof this.fullAdresse === 'object') {
+      const isnum  = /^\d+$/.test(this.searchvalue);
       if (isnum) {
-        this.dataService.sendPhoneNumber(this.search, this.place);
+        this.dataService.sendPhoneNumber(this.searchvalue, this.place);
       } else {
-        this.dataService.changeMessage(this.idactivity, this.place);
+        this.dataService.changeMessage(this.idactivity, this.searchvalue, this.place);
       }
       this.validate = true;
       this.router.navigate(['/recherche']);
+    } else {
+      this.validate = false;
     }
-    /*this.dataService.changeMessage(this.idactivity, this.place);
-    this.router.navigate(['/recherche']);*/
 
   }
 
@@ -145,15 +151,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // console.log(this.activities);
     /*  const  input: any = document.getElementById('search1');
-        console.log('input is ==>', input.value);
          const search$ = fromEvent(input, 'keyup')
-           .do(() => console.log(this.activities));
     }*/
   }
   setInputValue(term) {
-    console.log('sssssssssssssssssss', term);
      return term.nom;
   }
 }

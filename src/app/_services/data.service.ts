@@ -3,19 +3,21 @@ import {BehaviorSubject} from 'rxjs/index';
 
 @Injectable()
 export class DataService {
-  private searchItem = new BehaviorSubject('');
+  private searchactiviItem = new BehaviorSubject('');
   private searchPlace = new BehaviorSubject('default place');
   private searchPhone = new BehaviorSubject('');
-  currentSearch = this.searchItem.asObservable();
+  private searchname = new BehaviorSubject('');
+  currentSearch = this.searchactiviItem.asObservable();
   currentPlace = this.searchPlace.asObservable();
   phoneNumber = this.searchPhone.asObservable();
+  nameAnnuaire = this.searchname.asObservable();
   constructor() {}
-  changeMessage(item: string, place: string) {
-   this.searchItem.next(item);
+  changeMessage(activite: string, nom: string, place: string) {
+   this.searchactiviItem.next(activite);
    this.searchPlace.next(place);
+   this.searchname.next(nom);
   }
   sendPhoneNumber(phone: string, place: string) {
-    console.log('here');
     this.searchPlace.next(place);
     this.searchPhone.next(phone);
   }
