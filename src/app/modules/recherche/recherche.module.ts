@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { RechercheRoutingModule } from './recherche-routing.module';
 import { RechercheComponent } from './recherche/recherche.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
     CommonModule,
-    RechercheRoutingModule
+    RechercheRoutingModule,
+    NgxSpinnerModule,
   ],
   declarations: [RechercheComponent]
 })

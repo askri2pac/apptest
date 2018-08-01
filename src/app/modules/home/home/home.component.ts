@@ -10,7 +10,7 @@ import {Subject} from 'rxjs/index';
 import {ActivitiesService} from '../../../_services/activitiesService';
 import {MatMenuTrigger} from '@angular/material';
 import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operators';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 export interface User {
@@ -48,11 +48,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   filteredOptions: any;
   public model: any;
   validate: boolean;
+  httpOk: boolean;
 
   constructor(public ngxSmartModalService: NgxSmartModalService,
               private dataService: DataService,
               private router: Router,
-              private activiteService: ActivitiesService) {
+              private activiteService: ActivitiesService,
+              private spinner: NgxSpinnerService
+  ) {
     this.options = {
       types: [],
       componentRestrictions: {country: 'FR'}
@@ -97,7 +100,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }
     }
   }
-
   ngOnInit() {
     this.bodyText = 'This text can be updated in modal 1';
   }
@@ -118,6 +120,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
+
     if (typeof this.fullAdresse === 'object') {
       const isnum  = /^\d+$/.test(this.searchvalue);
       if (isnum) {

@@ -13,6 +13,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {ClickOutsideModule} from 'ng-click-outside';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 
@@ -31,6 +33,7 @@ import {ClickOutsideModule} from 'ng-click-outside';
     MatListModule,
     MatMenuModule,
     ClickOutsideModule,
+    NgxSpinnerModule,
   ],
   declarations: [HomeComponent]
 })

@@ -22,7 +22,7 @@
   top: 0;
   background: #383434 url('../../../../assets/images/coiffeur.jpg') top center;
   min-width: 100%;
-  min-height: 85%;
+  min-height: 91%;
   height: auto;
 }
 
@@ -45,7 +45,7 @@ form {
   /*justify-content: center;
   align-items: center;*/
   margin: 0 auto;
-  top: 19%;
+  top: 10rem;
   position: relative;
   height: 6rem;
   align-items: center;
@@ -82,7 +82,7 @@ form {
   margin-bottom: 1rem;
   display: flex;
   padding-right: 10px;
-  min-width: 54rem;
+  min-width: 63rem;
 }
 .btn-primary {
   color: #000000;
@@ -164,7 +164,7 @@ input[type="checkbox"] {
   position: relative;
   display: block;
   margin: auto;
-  top: 5rem;
+  top: 12rem;
 }
 
 .teste {
@@ -269,7 +269,7 @@ input.form-control {
   text-overflow: ellipsis;
   background-clip: unset;
   margin-right: 6px;
-  width: 21rem;
+  width: 24rem;
 }
 
 
@@ -295,18 +295,17 @@ input#mat-input-1 {
 
 
 .check{
-  background-color: #ffffff;
+  background-color: #ccc;
   border: 3px solid rgba(47, 47, 47, 0.26);
 }
 
 .mat-checkbox-layout .mat-checkbox-label {
   line-height: 24px;
 }
-.mat-checkbox-inner-container{
-}
 
 button.btn.btn-primary {
   margin-bottom: 34px;
+  margin-left: 2rem;
 }
 
 .check.col-xs-2.col-sm-2.col-md-2 {
@@ -335,6 +334,7 @@ button.btn.btn-primary {
 ::ng-deep .mat-form-field-underline{
 
   background-color: #d9e632 !important;
+  width: 0!important;
 }
 
 ::ng-deep .mat-checkbox-layout .mat-checkbox-label {
@@ -345,7 +345,7 @@ input.form-control[_ngcontent-c6]{
   background-color: #ffffff;
 }
 ::ng-deep .mat-form-field-infix{
-  width: 320px!important;
+  width: 271px!important;
 }
 
 .notification-drop {
@@ -391,21 +391,21 @@ input.form-control[_ngcontent-c6]{
     }
   }
 }
-::ng-deep .mat-menu-content {
+/*::ng-deep .mat-menu-content {
   background-color: white;
-}
+}*/
 
 ul.ng-star-inserted {
   padding-left: 0;
 }
-::ng-deep .mat-menu-content {
+/*::ng-deep .mat-menu-content {
   padding-top: 0;
-}
+}*/
 
-::ng-deep .mat-menu-panel{
+/*::ng-deep .mat-menu-panel{
   min-width:336px;
   max-width:336px;
-}
+}*/
 
 .list-search {
   position: absolute;
@@ -438,5 +438,21 @@ li.ng-star-inserted {
   background-color: #ea5957;
   border-color: #ea5957;
   border-radius:0;
+}
+.form-group.row {
+  background-color: rgba(24,24,24,0.4);
+}
+::ng-deep label.mat-checkbox-layout {
+  margin-top: 0;
+  background-color: #ccc;
+  height: 59px;
+  margin-bottom: 2px;
+  width: 8rem;
+}
+::ng-deep .mat-checkbox-inner-container{
+  margin-left: 8px!important;
+}
+input#mat-input-1 {
+  width: 17rem;
 }
 
