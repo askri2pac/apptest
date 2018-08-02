@@ -26,29 +26,12 @@
   height: auto;
 }
 
-.historique {
-  display: flex;
-  background-color: #F6F6F6;
-  text-align: left;
-  border: 1px solid #dddddd;
-}
-
 .pub {
   background:  url('../../../../assets/images/pub.jpg') no-repeat  center top;
 }
 
 body{
   font-family: 'Open Sans', sans-serif;
-}
-form {
-  display: flex;
-  /*justify-content: center;
-  align-items: center;*/
-  margin: 0 auto;
-  top: 10rem;
-  position: relative;
-  height: 6rem;
-  align-items: center;
 }
 
 .btn.btn-primary {
@@ -58,38 +41,9 @@ form {
 }
 
 
-.form-check {
-  position: relative;
-  display: inline-flex;
-  padding-left: 2.25rem;
-  background-color: #E6E6E6;
-  height: 3.7rem;
-  width: 9rem;
-  border: 3px solid #fff;
-  float: right;
-}
-.form-control{
-  border-radius: unset;
-  height: 3.7rem;
-  max-width: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 18rem;
-  background-clip: unset;
-}
-.form-group {
-  margin-bottom: 1rem;
-  display: flex;
-  padding-right: 10px;
-  min-width: 63rem;
-}
-.btn-primary {
-  color: #000000;
-  background-color: #FFEC00;
-  border-color: #FFEC00;
-  border-radius: unset;
-}
+
+
+
 
 .btn-primary:hover {
   border-color: #0078FF;
@@ -102,74 +56,6 @@ form {
   top: 50%;
   left: 50%;
   transform: translate(2%, -50%);
-}
-
-.geo {
-  width: 19rem!important;
-}
-
-input[type="checkbox"] {
-  box-sizing: border-box;
-  padding: 0;
-  margin-top: 22px;
-}
-.form-check-label {
-  margin-top: 16px;
-}
-
-.form-check-input {
-  position: absolute;
-  margin-top: 0.3rem;
-}
-
-.custom-autocomplete__input[_ngcontent-c4] input[_ngcontent-c4] {
-  margin: 0;
-  padding: 10px;
-  height: 59px;
-  border: 1px solid #ccc;
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 16px;
-}
-
-.auto-geo #search_places{
-  height: 59px;
-  width: 17rem;
-}
-
-.label1 {
-  color: #ffffff;
-  font-size: 2.1rem;
-  font-weight: 700;
-  display: block;
-  width: 100%;
-  margin: auto 0;
-  text-align: center;
-  font-family: "Open Sans","Arial","Helvetica",sans-serif;
-  z-index: 15;
-  line-height: 1.8rem;
-}
-
-.label2 {
-  color: #ffffff;
-  font-size: 1.7rem;
-  font-family: "Open Sans","Arial","Helvetica",sans-serif;
-  font-weight: 400;
-  text-align: center;
-}
-
-.label-hour {
-  position: relative;
-  display: block;
-  margin: auto;
-  top: 12rem;
-}
-
-.teste {
-  display: flex;
-  margin: 0 auto;
 }
 
 .title-last-search {
@@ -226,13 +112,6 @@ input[type="checkbox"] {
   }
 }
 
-.row-name {
-  display: flex;min-width: 100%;
-  font-weight: bold;
-  font-size: 1.1rem;
-  line-height: 2.4rem;
-}
-
 .avis {
   float: right;
   margin-left: 14rem;
@@ -260,19 +139,6 @@ ul {
 label.label1 {
   margin-bottom: 0px;
 }
-
-input.form-control {
-  border-radius: unset;
-  max-width: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  background-clip: unset;
-  margin-right: 6px;
-  width: 24rem;
-}
-
-
 .example-form {
   min-width: 150px;
   max-width: 500px;
@@ -308,151 +174,80 @@ button.btn.btn-primary {
   margin-left: 2rem;
 }
 
-.check.col-xs-2.col-sm-2.col-md-2 {
-  height: 59.5px;
-  margin-top: 19.5px;
-}
-.text_center{
- vertical-align: middle;
+* {
+  box-sizing: border-box;
 }
 
-::ng-deep .mat-form-field-placeholder{
-
-  color: #ff2f2a !important;
+input[type=text], select, textarea {
+  width: 95%;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  resize: vertical;
 }
 
-::ng-deep .mat-focused .mat-form-field-label{
-
-  color: #d9e632 !important;
+input[type=submit] {
+  background-color: #ffec3d;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  float: right;
+  height: 5rem;
 }
 
-::ng-deep .mat-form-field-underline .mat-form-field-ripple{
-
-  background-color: #d9e632 !important;
+input[type=submit]:hover {
+  background-color: #ffec3d;
 }
 
-::ng-deep .mat-form-field-underline{
-
-  background-color: #d9e632 !important;
-  width: 0!important;
+.container {
+  border-radius: 0;
+  background-color: rgba(24,24,24,0.4);
+  padding: 20px;
+  margin-top: auto;
 }
 
-::ng-deep .mat-checkbox-layout .mat-checkbox-label {
-  line-height: 54px!important;
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
 }
 
-input.form-control[_ngcontent-c6]{
-  background-color: #ffffff;
-}
-::ng-deep .mat-form-field-infix{
-  width: 271px!important;
+.col-75 {
+  float: left;
+  width: 40%;
+  margin-top: 6px;
 }
 
-.notification-drop {
-  li {
-    a:not(.last_info) {
-      i {
-        color: white;
-        padding-right: 5px;
-        font-size: 11px;
-      }
-    }
-    a {
-      overflow: hidden;
-      display: block;
-      color: #999;
-      padding: 10px!important;
-      border-bottom: 1px solid #222;
-      text-align: left;
-      .time_info {
-        color: #fff;
-        font-size: 10px;
-        padding-left: 15px;
-        float: right;
-        margin-top: 3px;
-      }
-      i {
-        color: #999;
-        padding-right: 10px;
-        font-size: 18px;
-      }
-      &:hover {
-        background-color: #f6f7fa;
-        color: #262626;
-        .time_info {
-          color: white;
-        }
-      }
-    }
-    .last_info {
-      text-align: right;
-      text-transform: uppercase;
-      font-size: 10px;
-    }
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row{
+  margin-left:0;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
   }
 }
-/*::ng-deep .mat-menu-content {
-  background-color: white;
-}*/
 
-ul.ng-star-inserted {
-  padding-left: 0;
-}
-/*::ng-deep .mat-menu-content {
-  padding-top: 0;
-}*/
-
-/*::ng-deep .mat-menu-panel{
-  min-width:336px;
-  max-width:336px;
-}*/
-
-.list-search {
-  position: absolute;
-  text-align: left;
-  top: 87px;
-  min-width: 21rem;
-  max-width: 21rem;
-}
-ul.ng-star-inserted {
-  padding: 17px;
-}
-li.ng-star-inserted {
-  padding: 13px;
-}
-::ng-deep .mat-form-field-wrapper {
- // padding-bottom: 0!important;
+.col {
+  flex-basis: 0;
+  bottom: 12px;
+  /*max-width: 8%;*/
 }
 
-.items-search :hover {
-  background: #0078FF;
-  color: #ffffff;
-  cursor: default;
-}
-::ng-deep ul.items-search {
-  padding-left: 0px;
-}
-.alert-danger {
-  top: 87px;
-  color: #ffffff;
-  background-color: #ea5957;
-  border-color: #ea5957;
-  border-radius:0;
-}
-.form-group.row {
-  background-color: rgba(24,24,24,0.4);
-}
-::ng-deep label.mat-checkbox-layout {
-  margin-top: 0;
-  background-color: #ccc;
-  height: 59px;
-  margin-bottom: 2px;
-  width: 8rem;
-}
-::ng-deep .mat-checkbox-inner-container{
-  margin-left: 8px!important;
-}
-input#mat-input-1 {
-  width: 17rem;
-}
+
+
+
+
+
+
 
