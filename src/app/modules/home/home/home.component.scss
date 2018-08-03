@@ -20,7 +20,7 @@
   display: grid;
   position: absolute;
   top: 0;
-  background: #383434 url('../../../../assets/images/coiffeur.jpg') top center;
+  background: #383434 url('../../../../assets/images/background.jpg') top center;
   min-width: 100%;
   min-height: 91%;
   height: auto;
@@ -50,6 +50,13 @@ body{
   border-radius: unset;
   background-color: #0078FF;
   color: #fff;
+}
+.btn-primary {
+  border-color: #ffec3d;
+  border-radius: unset;
+  background-color: #ffec3d;
+  color: #000000;
+
 }
 .fa.fa-search {
   font-size: xx-large;
@@ -170,8 +177,8 @@ input#mat-input-1 {
 }
 
 button.btn.btn-primary {
-  margin-bottom: 34px;
-  margin-left: 2rem;
+ /* margin-bottom: 34px;
+  margin-left: 2rem;*/
 }
 
 * {
@@ -206,6 +213,9 @@ input[type=submit]:hover {
   background-color: rgba(24,24,24,0.4);
   padding: 20px;
   margin-top: auto;
+  position: absolute;
+  top: 60%;
+  margin-left: 6%;
 }
 
 .col-25 {
@@ -221,13 +231,14 @@ input[type=submit]:hover {
 }
 
 /* Clear floats after the columns */
-.row:after {
+/*.row:after {
   content: "";
   display: table;
   clear: both;
-}
+}*/
 .row{
   margin-left:0;
+  align-items: center;
 }
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
@@ -240,14 +251,60 @@ input[type=submit]:hover {
 
 .col {
   flex-basis: 0;
-  bottom: 12px;
   /*max-width: 8%;*/
 }
 
+.padding-0 {
+  padding-right:0;
+  padding-left:0;
+}
 
+.div-submit {
+  max-width: 10%;
+}
 
+.alert.alert-danger {
+  border-radius: unset;
+  width: 95%;
+}
+.list-search{
+  position: absolute;
+  min-width: 27.6rem;
+}
+ul.items-search {
+  padding-left: 0;
+}
+li.ng-star-inserted {
+  padding: 15px;
+}
+li.ng-star-inserted:hover {
+  background-color: #0078FF;
+  color: white;
+  cursor: default;
+}
 
-
-
-
-
+.list {
+  padding: 16px;
+  border-bottom: 1px solid #E6E6E6;
+}
+.list:hover {
+  background-color: #0078FF;
+  color: white;
+  cursor: default;
+}
+::ng-deep .pac-item {
+  cursor: default;
+  padding: 11px 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 30px;
+  text-align: left;
+  border-top: 1px solid #e6e6e6;
+  font-size: 11px;
+  color: #999;
+}
+::ng-deep .pac-item:hover {
+  background-color: #0078FF;
+  color: white;
+}

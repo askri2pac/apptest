@@ -1,0 +1,9 @@
+<div *ngIf="isopen" class="menu-style">
+  <ul class="list-account">
+    <li class="list-member" (click)="ngxSmartModalService.getModal('myModal').open()">Se connecter</li>
+    <li (click)="ngxSmartModalService.getModal('myModal22').open()">Créer un compte</li>
+  </ul>
+</div>
+
+<!--<app-modal-login></app-modal-login>
+<app-modal-subscribe></app-modal-subscribe>-->

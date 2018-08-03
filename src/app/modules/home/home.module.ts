@@ -14,6 +14,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {ClickOutsideModule} from 'ng-click-outside';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {MenuComponent} from '../../component/menu/menu.component';
 
 
 
@@ -35,6 +36,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ClickOutsideModule,
     NgxSpinnerModule,
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, MenuComponent]
 })
 export class HomeModule { }

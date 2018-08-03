@@ -59,6 +59,10 @@ a  img{
   width: 7rem;
 }
 
+.user-account {
+  width: 30px;
+}
+
 .header-right {
   margin-left: auto;
 }
@@ -82,9 +86,12 @@ a  img{
 }
 
 .account {
-  margin-right: 40px;
+ /* margin-right: 40px;
   cursor: pointer;
-  width: 219px;
+  width: 219px;*/
+  margin-right: 9px;
+  cursor: pointer;
+  width: 163px;
 }
 
 body{
@@ -111,6 +118,7 @@ a.account.user {
 }
 a.account.user:hover{
   color: white;
+  //background-color: #333;
 }
 
 .mat-menu-content {
@@ -129,7 +137,7 @@ button.mat-menu-item {
 .topnav {
   position: relative;
   z-index: 999;
-  overflow: hidden;
+  //overflow: hidden;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 7px 0;
   top: 0;

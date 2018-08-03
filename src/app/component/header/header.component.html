@@ -13,15 +13,15 @@
         <a class="compte" routerLink="/contact" routerLinkActive="active-link">About</a>
       </li>
       <li>
-        <a class=" account user header-right" [matMenuTriggerFor]="menu">
+        <a id="user-link" class=" account user header-right" (click)="openMenu()">
           <div class="user-account">
             <span class="fa fa-user-circle"></span>
             <span class="compte">Mon Compte</span>
           </div>
-          <mat-menu yPosition="below" xPosition="before" [overlapTrigger]="false" class="menu" #menu="matMenu">
+          <!--<mat-menu yPosition="below" xPosition="before" [overlapTrigger]="false" class="menu" #menu="matMenu">
             <button (click)="ngxSmartModalService.getModal('myModal').open()" mat-menu-item>Se connecter</button>
             <button (click)="ngxSmartModalService.getModal('myModal22').open()" mat-menu-item>Créer un compte</button>
-          </mat-menu>
+          </mat-menu>-->
         </a>
 
 

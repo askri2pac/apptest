@@ -7,10 +7,12 @@ export class DataService {
   private searchPlace = new BehaviorSubject('default place');
   private searchPhone = new BehaviorSubject('');
   private searchname = new BehaviorSubject('');
+  private menuitem = new BehaviorSubject(false);
   currentSearch = this.searchactiviItem.asObservable();
   currentPlace = this.searchPlace.asObservable();
   phoneNumber = this.searchPhone.asObservable();
   nameAnnuaire = this.searchname.asObservable();
+  menu = this.menuitem.asObservable();
   constructor() {}
   changeMessage(activite: string, nom: string, place: string) {
    this.searchactiviItem.next(activite);
@@ -20,5 +22,8 @@ export class DataService {
   sendPhoneNumber(phone: string, place: string) {
     this.searchPlace.next(place);
     this.searchPhone.next(phone);
+  }
+  menuState(state) {
+    this.menuitem.next(state);
   }
 }
