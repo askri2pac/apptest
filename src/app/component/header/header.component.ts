@@ -3,7 +3,6 @@ import {MatMenuTrigger} from '@angular/material';
 import {NgxSmartModalModule, NgxSmartModalService} from 'ngx-smart-modal';
 import {ModalComponent} from '../custom/_directives';
 import {HomeComponent} from '../../modules/home/home/home.component';
-import { ModalBodyComponent } from '../modal-body/modal-body.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {DataService} from '../../_services/data.service';
 import {element} from 'protractor';
@@ -21,7 +20,7 @@ import {element} from 'protractor';
     NgxSmartModalModule,
     NoopAnimationsModule
   ],
-  declarations: [HomeComponent, ModalComponent, ModalBodyComponent]
+  declarations: [HomeComponent, ModalComponent]
 })
 export class HeaderComponent implements OnInit {
   @HostBinding('@.disabled')

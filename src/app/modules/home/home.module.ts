@@ -36,6 +36,6 @@ import {MenuComponent} from '../../component/menu/menu.component';
     ClickOutsideModule,
     NgxSpinnerModule,
   ],
-  declarations: [HomeComponent, MenuComponent]
+  declarations: []
 })
 export class HomeModule { }

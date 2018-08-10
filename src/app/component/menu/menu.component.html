@@ -5,5 +5,15 @@
   </ul>
 </div>
 
-<!--<app-modal-login></app-modal-login>
-<app-modal-subscribe></app-modal-subscribe>-->
+<ngx-smart-modal #myModal identifier="myModal">
+  <app-modal-body></app-modal-body>
+  <!--<h1>Title</h1>-->
+  <!--<p>Some stuff...</p>-->
+
+  <!--<button (click)="myModal.close()">Close</button>-->
+</ngx-smart-modal>
+
+<ngx-smart-modal [escapable]="true" #myModal22 identifier="myModal22">
+  hello
+</ngx-smart-modal>
+

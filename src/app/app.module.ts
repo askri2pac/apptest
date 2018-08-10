@@ -13,7 +13,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 import {NgxSmartModalModule} from 'ngx-smart-modal';
 import { ModalComponent } from './component/custom/_directives';
-import { ModalBodyComponent } from './component/modal-body/modal-body.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AuthentificationService } from './_services/authentification.service';
@@ -32,6 +31,10 @@ import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import {NgAutoCompleteModule} from 'ng-auto-complete';
 import {MatInputModule} from '@angular/material';
 import {ActivitiesService} from './_services/activitiesService';
+import {ModalBodyComponent} from './component/modal-body/modal-body.component';
+import {MenuComponent} from './component/menu/menu.component';
+import {HomeModule} from './modules/home/home.module';
+import {HomeComponent} from './modules/home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -40,10 +43,12 @@ import {ActivitiesService} from './_services/activitiesService';
     HeaderComponent,
     FooterComponent,
     ModalComponent,
-    ModalBodyComponent,
     RegisterModalBodyComponent,
     ModalSubscribeComponent,
     ModalLoginComponent,
+    ModalBodyComponent,
+    MenuComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,7 @@ import {ActivitiesService} from './_services/activitiesService';
     GooglePlaceModule,
     NgAutoCompleteModule,
     MatInputModule,
+    HomeModule
   ],
   exports: [MatMenuModule],
   providers: [
