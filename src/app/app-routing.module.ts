@@ -1,9 +1,11 @@
 import {Routes, RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
-import {ContactsModule} from './modules/contacts/contacts.module';
-import {AuthGuardService as AuthGuard} from './_services/auth-guard.service';
-import {HomeModule} from './modules/home/home.module';
-import {RechercheModule} from './modules/recherche/recherche.module';
+import {ContactsModule} from './pages/contacts/contacts.module';
+import {AuthGuardService as AuthGuard} from './core/auth/auth-guard.service';
+import {HomeModule} from './pages/home/home.module';
+import {RechercheModule} from './pages/recherche/recherche.module';
+import { UserManagementModule } from './admin/user-management/user-management.module';
+
 
 const appRoutes: Routes = [
   {
@@ -13,20 +15,24 @@ const appRoutes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: 'app/modules/home/home.module#HomeModule'
+    loadChildren: 'app/pages/home/home.module#HomeModule'
   },
   {
     path: 'contact',
-    loadChildren: 'app/modules/contacts/contacts.module#ContactsModule',
+    loadChildren: 'app/pages/contacts/contacts.module#ContactsModule',
   },
   {
     path: 'profile',
-    loadChildren: 'app/modules/profile/profile.module#ProfileModule',
+    loadChildren: 'app/pages/profile/profile.module#ProfileModule',
     // canActivate: [AuthGuard]
   },
   {
     path: '',
-    loadChildren: 'app/modules/recherche/recherche.module#RechercheModule'
+    loadChildren: 'app/pages/recherche/recherche.module#RechercheModule'
+  },
+  {
+    path: 'admin/usermanagement',
+    loadChildren: 'app/admin/user-management/user-management.module#UserManagementModule'
   }
 ];
 

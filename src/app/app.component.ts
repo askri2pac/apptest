@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 
-import './component/custom/_content/app.less';
-import './component/custom/_content/modal.less';
+import './layouts/custom/_content/app.less';
+import './layouts/custom/_content/modal.less';
 
 @Component({
   selector: 'app-root',

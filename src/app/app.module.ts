@@ -4,37 +4,41 @@ import { RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { AuthentificationComponent } from './authentification/authentification.component';
-import { HeaderComponent } from './component/header/header.component';
-import { FooterComponent } from './component/footer/footer.component';
+import { AuthentificationComponent } from './account/authentification.component';
+import { HeaderComponent } from './layouts/header/header.component';
+import { FooterComponent } from './layouts/footer/footer.component';
 import { AppModuleRouting } from './app-routing.module';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 import {NgxSmartModalModule} from 'ngx-smart-modal';
-import { ModalComponent } from './component/custom/_directives';
+import { ModalComponent } from './layouts/custom/_directives';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { AuthentificationService } from './_services/authentification.service';
+import { AuthentificationService } from './core/auth/authentification.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {RequestHandlerService} from './_services/requestHandler';
+import {RequestHandlerService} from './core/auth/requestHandler';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptor } from './_services/TokenInterceptor';
-import {AuthGuardService} from './_services/auth-guard.service';
-import { RegisterModalBodyComponent } from './component/register-modal-body/register-modal-body.component';
-import { ModalSubscribeComponent } from './component/modal-subscribe/modal-subscribe.component';
-import { ModalLoginComponent } from './component/modal-login/modal-login.component';
-import {DataService} from './_services/data.service';
+import { TokenInterceptor } from './core/auth/TokenInterceptor';
+import {AuthGuardService} from './core/auth/auth-guard.service';
+import { RegisterModalBodyComponent } from './layouts/register-modal-body/register-modal-body.component';
+import { ModalSubscribeComponent } from './layouts/modal-subscribe/modal-subscribe.component';
+import { ModalLoginComponent } from './layouts/modal-login/modal-login.component';
+import {DataService} from './core/data/data.service';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import {NgAutoCompleteModule} from 'ng-auto-complete';
 import {MatInputModule} from '@angular/material';
-import {ActivitiesService} from './_services/activitiesService';
-import {ModalBodyComponent} from './component/modal-body/modal-body.component';
-import {MenuComponent} from './component/menu/menu.component';
-import {HomeModule} from './modules/home/home.module';
-import {HomeComponent} from './modules/home/home/home.component';
+import {ActivitiesService} from './core/activity/activitiesService';
+import {ModalBodyComponent} from './layouts/modal-body/modal-body.component';
+import {MenuComponent} from './layouts/menu/menu.component';
+import {HomeModule} from './pages/home/home.module';
+import {HomeComponent} from './pages/home/home/home.component';
+import { RegisterComponent } from './account/register/register.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserManagementModule } from './admin/user-management/user-management.module';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +52,7 @@ import {HomeComponent} from './modules/home/home/home.component';
     ModalLoginComponent,
     ModalBodyComponent,
     MenuComponent,
-    HomeComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,9 @@ import {HomeComponent} from './modules/home/home/home.component';
     GooglePlaceModule,
     NgAutoCompleteModule,
     MatInputModule,
-    HomeModule
+    HomeModule,
+    UserManagementModule,
+    NgbModule.forRoot()
   ],
   exports: [MatMenuModule],
   providers: [

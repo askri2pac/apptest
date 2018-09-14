@@ -1,0 +1,31 @@
+<div>
+  <div class="topnav" id="myTopnav">
+    <a routerLink="/home" class="logo "><img class="img_logo" src="../../../assets/images/logo.png"></a>
+    <ul>
+      <li class="homeclass">
+        <a class="compte" routerLink="/home" routerLinkActive="active-link">Home</a>
+      </li>
+      <li>
+        <a class="compte" routerLink="/contact"
+           routerLinkActive="active-link">Contact</a>
+      </li>
+      <li>
+        <a class="compte" routerLink="/contact" routerLinkActive="active-link">About</a>
+      </li>
+      <li>
+      <app-modal-login></app-modal-login>
+      <app-modal-subscribe></app-modal-subscribe>
+
+      </li>
+
+      <li class="icon">
+
+        <a class="at-link" href="javascript:void(0);" (click)="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
