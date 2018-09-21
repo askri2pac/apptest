@@ -1,5 +1,5 @@
 {
-  "name": "III",
+  "name": "apptest",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -22,7 +22,9 @@
     "@angular/material": "^6.2.1",
     "@angular/platform-browser": "6.0.4",
     "@angular/platform-browser-dynamic": "6.0.4",
+    "@angular/pwa": "^0.8.3",
     "@angular/router": "6.0.4",
+    "@angular/service-worker": "^6.1.8",
     "@ng-bootstrap/ng-bootstrap": "^2.2.0",
     "angular-text-input-autocomplete": "^0.3.0",
     "angular2-jwt": "^0.2.3",

@@ -5,8 +5,7 @@ import {ModalComponent} from '../custom/_directives';
 import {HomeComponent} from '../../pages/home/home/home.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {DataService} from '../../core/data/data.service';
-import {element} from 'protractor';
-
+import { NgbDropdown,NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,9 +17,10 @@ import {element} from 'protractor';
 @NgModule({
   imports: [
     NgxSmartModalModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    NgbDropdownModule.forRoot(),
   ],
-  declarations: [HomeComponent, ModalComponent]
+  declarations: [HomeComponent, ModalComponent],
 })
 export class HeaderComponent implements OnInit {
   @HostBinding('@.disabled')

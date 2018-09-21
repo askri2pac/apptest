@@ -71,7 +71,7 @@ import { UserManagementModule } from './admin/user-management/user-management.mo
     MatInputModule,
     HomeModule,
     UserManagementModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
   ],
   exports: [MatMenuModule],
   providers: [
